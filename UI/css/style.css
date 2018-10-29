@@ -65,6 +65,6 @@ button{
     margin-top: 40px;
 }
 
-.signUp{
+#formSignUp{
     display: none;
 }

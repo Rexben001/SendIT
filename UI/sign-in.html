@@ -8,28 +8,54 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+        <div class="topnav">
+                <a href="index.html">Home</a>
+                <a href="#news">Tracking</a>
+                <a href="sign-in.html" class="active">SignUp/SignIn</a>
+                <a href="#about">My Profile</a>
+                <a href="#admin">Admin</a>
+              </div>
     <form id="formSignIn">
         <label for="username" name="username">Username or Email</label>
         <br>
-        <input type="text|email" id="username">
+        <input required type="text|email" id="username">
         <br>
         <label for="password" name="password">Password</label>
         <br>
-        <input type="password" id="password">
+        <input required type="password" id="password">
         <br>
         <button type="submit">Sign In</button>
+        <br>
         <a href="#" id="signIn">Don't have an account? Create one.</a>
     </form>
-    <form class="signUp">
-            <label for="username" name="username">Username or Email</label>
+
+    <form id="formSignUp">
+            <label for="username" name="username">Full Name</label>
             <br>
-            <input type="text|email" id="username">
+            <input required type="email" id="username">
+            <br>
+            <label for="email" name="email">Email</label>
+            <br>
+            <input required type="email" id="email">
+            <br>
+            <label for="country" name="country">Country</label>
+            <br>
+            <input required type="country" id="country">
+            <br>
+            <label for="phone" name="phone">Phone No.</label>
+            <br>
+            <input required type="phone" id="phone">
             <br>
             <label for="password" name="password">Password</label>
             <br>
-            <input type="password" id="password">
+            <input required type="password" id="password">
+            <br>
+            <label for="password" name="password">Confirm Password</label>
+            <br>
+            <input required type="confrim-password" id="confirm-password">
             <br>
             <button type="submit">Sign Up</button>
+            <br>
             <a href="#" id="signUp">Already have an account? Sign In.</a>
         </form>
         <script src="javascript/sign-in.js"></script>
