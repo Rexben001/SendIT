@@ -4,18 +4,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Sign In</title>
+    <link rel="icon" type="image/png" href="img/logo.png"">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-        <div class="topnav">
-                <a href="index.html">Home</a>
-                <a href="#news">Tracking</a>
-                <a href="sign-in.html" class="active">SignUp/SignIn</a>
-                <a href="#about">My Profile</a>
-                <a href="#admin">Admin</a>
-              </div>
+    <header>
+    <div class="topnav">
+        <a href="index.html">Home</a>
+        <a href="parcel-order.html">Create Parcel Order</a>
+        <a href="sign-in.html" class="active">SignUp | SignIn</a>
+        <a href="user-profile.html">My Profile</a>
+        <a href="admin.html">Admin</a>
+    </div>
+</header>
+<section>
+    <div id="formBody">
     <form id="formSignIn">
+        <h1>Sign In</h1>
         <label for="username" name="username">Username or Email</label>
         <br>
         <input required type="text|email" id="username">
@@ -30,9 +36,10 @@
     </form>
 
     <form id="formSignUp">
+        <h1>Sign Up</h1>
             <label for="username" name="username">Full Name</label>
             <br>
-            <input required type="email" id="username">
+            <input required type="username" id="username">
             <br>
             <label for="email" name="email">Email</label>
             <br>
@@ -52,12 +59,17 @@
             <br>
             <label for="password" name="password">Confirm Password</label>
             <br>
-            <input required type="confrim-password" id="confirm-password">
+            <input required type="password" id="confirm-password">
             <br>
+            <label><input type="checkbox" name="agree">I have read, understood and agree to be bound by the 
+                    terms and conditons of SendIT.</label>
             <button type="submit">Sign Up</button>
             <br>
             <a href="#" id="signUp">Already have an account? Sign In.</a>
         </form>
+    </div>
+</section>
+
         <script src="javascript/sign-in.js"></script>
 </body>
 </html>
