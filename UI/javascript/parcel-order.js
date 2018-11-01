@@ -21,7 +21,7 @@ let disp = document.getElementById('disp');
 
 if(parcel.style.display != 'none'){
     parcel.style.display = 'none';
-    disp.innerHTML = "&#8594";
+    disp.innerHTML = "<strong>&#8594</strong>";
 }else{
     parcel.style.display = 'block';
     disp.innerHTML = "<strong>&#8595</strong>"
