@@ -4,6 +4,7 @@
   "description": "A courier service project",
   "main": "index.js",
   "scripts": {
+    "lint": "eslint",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +16,13 @@
   "bugs": {
     "url": "https://github.com/Rexben001/SendIT/issues"
   },
-  "homepage": "https://github.com/Rexben001/SendIT#readme"
+  "homepage": "https://github.com/Rexben001/SendIT#readme",
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "eslint": "^5.8.0",
+    "mocha": "^5.2.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
