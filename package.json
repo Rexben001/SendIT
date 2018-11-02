@@ -2,10 +2,10 @@
   "name": "sendit",
   "version": "1.0.0",
   "description": "A courier service project",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "lint": "eslint",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,8 @@
   "devDependencies": {
     "chai": "^4.2.0",
     "eslint": "^5.8.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
     "mocha": "^5.2.0"
   },
   "dependencies": {
