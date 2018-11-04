@@ -15,7 +15,7 @@ app.get('/api/v1/parcels', (req, res) => {
     return res.status(200).send({
         success: true,
         message: 'user retrieved successfully',
-        parcel: getParcel(db)
+        parcel: db.parcel
     });
 });
 
@@ -27,10 +27,7 @@ app.post('/api/v1/parcels', (req, res) => {
             message: 'Enter the fields correctly'
         });
     }
-    const user = {
-        id: db.length + 1,
-        name: req.body.name,
-        parcel: [{
+    const parcel = {
                 id: db.length+11,
                 weight: req.body.weight,
                 username: req.body.username,
@@ -42,9 +39,9 @@ app.post('/api/v1/parcels', (req, res) => {
                 phoneOfPicker: req.body.phoneOfPicker,
                 destination: req.body.destination,
                 status: req.body.status
-        }]
+        
     }
-    db.push(user);
+    db.parcel.push(parcel);
     return res.status(201).send({
         success: true,
         message: 'user created successsfully', user
@@ -58,12 +55,12 @@ app.get('/api/v1/parcels/:id', (req, res) => {
     // const id = parseInt(req.params.name, 10);
 
 
-    getParcel(db).map((parcel) =>{
+    db.parcel.map((parcel) =>{
         if(parcel.id == id){
             return res.status(200).send({
                 success: true,
                 message: 'user retrieved successfully',
-                users: getParcel(db)
+                parcel: parcel
             });
         }
     });

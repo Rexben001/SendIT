@@ -1,4 +1,5 @@
-const users = [
+const db = {
+ users: [
     {
         id: 1,
         name: 'Ben',
@@ -8,9 +9,9 @@ const users = [
         password: 'erft9876',
         parcel: []
     }
-];
+],
 
-const parcels = {
+ parcel: {
     id: 1,
     weight: '23.4',
     username: 'REx',
@@ -23,5 +24,6 @@ const parcels = {
     destination: 'Ikorodu',
     status: 'in transit'
 }
+}
 
-console.log(users[0].parcel.push(parcels));
+export default db;
