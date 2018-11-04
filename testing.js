@@ -7,7 +7,7 @@ const users = [
         phone: '2345678',
         password: 'erft9876',
         parcel:
-            {
+        {
             id: 21,
             weight: '23.4',
             username: 'REx',
