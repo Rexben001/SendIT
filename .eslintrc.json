@@ -15,9 +15,11 @@
     },
     "rules": {
         "indent": [
-            "error",
-            "tab"
-        ],
+            "2",
+						"tab",
+						{"SwitchCase": 1}
+		],
+		"no-tabs": 0,
         "linebreak-style": [
             "error",
             "windows"
