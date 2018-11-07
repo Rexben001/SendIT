@@ -75,9 +75,34 @@ describe('API route testing', () => {
 				});
 		}));
 	});
-
+	describe('PUT /v1/parcels/:id/edit', () => {
+		it('it should produce parcel updated successfully', ((done) => {
+			const parcelDestination = {
+				destination: 'Igbe road',
+			};
+			chai.request(app)
+				.put(`/api/v1/parcels/${2}/edit`)
+				.send(parcelDestination)
+				.end((err, res) => {
+					res.should.have.status(201);
+					res.body.success.should.equal(true);
+					res.body.message.should.equal('Parcel updated successfully');
+					done();
+				});
+		}));
+	});
+	describe('/PUT /v1/parcels:id/cancel', () => {
+		it('It should delete the parcel with the particular id', ((done) => {
+			chai.request(app)
+				.put(`/api/v1/parcels/${2}/cancel`)
+				.end((err, res) => {
+					res.should.have.status(200);
+					done();
+				});
+		}));
+	});
 	describe('POST /v1/users', () => {
-		it('it should get all parcels', ((done) => {
+		it('it should add new user', ((done) => {
 			const user = {
 				id: 2,
 				name: 'Ben',
@@ -93,8 +118,6 @@ describe('API route testing', () => {
 					res.should.have.status(201);
 					res.body.should.be.a('Object');
 					res.body.should.have.property('success').eql(true);
-					res.body.user.should.have.property('name').eql('Ben');
-					res.body.parcel.id.should.be.a('Number');
 					done();
 				});
 		}));
@@ -103,30 +126,12 @@ describe('API route testing', () => {
 	describe('GET /v1/users/:id/parcels', () => {
 		it('it should get parcels from a user by its given id', ((done) => {
 			chai.request(app)
-				.get('/v1/users/1/parcels')
+				.get(`/api/v1/users/${1}/parcels`)
 				.end((err, res) => {
 					res.should.have.status(200);
-					res.body.should.be.a('array');
+					res.body.should.be.a('Object');
 					res.body.success.should.equal(true);
-					res.body.parcel.id.should.be.a('Number');
-					done();
-				});
-		}));
-	});
-
-	describe('PUT /v1/parcels/:id/edit', () => {
-		it('it should produce parcel updated successfully', ((done) => {
-			const parcelDestination = {
-				destination: 'Igbe road',
-			};
-			chai.request(app)
-				.put('/v1/parcels/2/edit')
-				.send(parcelDestination)
-				.end((err, res) => {
-					res.should.have.status(201);
-					res.body.success.should.equal(true);
-					res.body.message.should.equal('Parcel updated successfully');
-					res.body.parcel.destination.should.be.equal('Igbe road');
+					res.body.parcel.should.be.a('array');
 					done();
 				});
 		}));

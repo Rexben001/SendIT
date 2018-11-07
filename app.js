@@ -99,16 +99,12 @@ router.put('/v1/parcels/:id/cancel', (req, res) => {
 
 router.get('/v1/users/:id/parcels', (req, res) => {
 	const id = parseInt(req.params.id, 10);
-
 	db.users.map((singleParcel) => {
 		if (singleParcel.id === id) {
 			return res.status(200).send({
 				success: true,
 				message: 'parcels retrieved successfully',
-				parcel: {
-					user: singleParcel.name,
-					parcels: singleParcel.parcels,
-				},
+				parcel: singleParcel.parcels,
 			});
 		}
 		return res.status(404).send({
