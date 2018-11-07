@@ -6,6 +6,7 @@ const app = express();
 const router = express.Router();
 
 app.use(bodyParser.urlencoded({
+	extended: true
 }));
 app.use(bodyParser.json());
 
@@ -64,17 +65,17 @@ router.get('/v1/parcels/:id', (req, res) => {
 			if (parcel.id == id) {
 				return res.status(200).send({
 					success: true,
-					message: 'user retrieved successfully',
+					message: 'parcel retrieved successfully',
 					parcel: parcel
 				});
 			}
-
+			return res.status(404).send({
+				success: false,
+				message: 'parcel does not exist'
+			});
 		});
 	});
-	return res.status(404).send({
-		success: false,
-		message: 'user does not exist'
-	});
+
 });
 
 //Cancel a particular delivery order parcel
@@ -90,14 +91,15 @@ router.put('/v1/parcels/:id/cancel', (req, res) => {
 					message: 'Parcel cancelled successfully'
 				});
 			}
+			return res.status(404).send({
+				success: false,
+				message: 'parcel not found'
+			});
 		});
 
 	});
 
-	return res.status(404).send({
-		success: false,
-		message: 'parcel not found'
-	});
+
 });
 
 router.get('/v1/users/:id/parcels', (req, res) => {
@@ -108,15 +110,19 @@ router.get('/v1/users/:id/parcels', (req, res) => {
 		if (parcel.id == id) {
 			return res.status(200).send({
 				success: true,
-				message: 'user retrieved successfully',
-				user: parcel
+				message: 'parcels retrieved successfully',
+				parcel: {
+					user: parcel.name,
+					parcels: parcel.parcels
+				}
 			});
 		}
+		return res.status(404).send({
+			success: false,
+			message: 'parcels not found'
+		});
 	});
-	return res.status(404).send({
-		success: false,
-		message: 'user does not exist'
-	});
+
 });
 
 router.put('/v1/parcels/:id/edit', (req, res) => {
@@ -133,17 +139,13 @@ router.put('/v1/parcels/:id/edit', (req, res) => {
 					parcel: singleParcel
 				});
 			}
-
+			return res.status(404).send({
+				success: false,
+				message: 'parcel not found'
+			});
 		});
 	});
 
-
-
-
-	return res.status(404).send({
-		success: false,
-		message: 'parcel not found'
-	});
 });
 
 app.use('/api', router);
@@ -153,3 +155,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
 	console.log(`Server running on ${PORT}`)
 });
+
+export default app;
