@@ -31,15 +31,18 @@ if(parcel.style.display != 'none'){
 const dest = document.getElementById('dest');
 const destination = document.getElementById('destination');
 
-document.getElementById('editDest').addEventListener('click', function(){
+const editDest = document.getElementById('editDest');
+
+
+editDest.addEventListener('click', function(){
     document.getElementById('des').style.display = 'block';
-    console.log(dest.value);
+    editDest.style.display = 'none';
     destination.value = dest.innerText;
     });
 
     document.getElementById('saveDest').addEventListener('click', function(){
-        
         document.getElementById('des').style.display = 'none';
+        editDest.style.display = 'inline';
         dest.innerHTML = destination.value;
     });
     
