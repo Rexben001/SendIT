@@ -1,36 +1,29 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../app.js'
+import app from '../app';
 
-
-
-let should = chai.should();
+chai.should();
 
 chai.use(chaiHttp);
 
-
-
 describe('API route testing', () => {
-
 	describe('POST /v1/parcels', () => {
-
 		it('it should get all parcels', ((done) => {
-			let parcel = {
-				"id": 2,
-				"weight": "232.6",
-				"username": "seyi",
-				"emailAddress": "rexben.rb@gmail.com",
-				"pickup": "10, Igbe, Lagos",
-				"phone": "345678",
-				"picker": "dfgh",
-				"emailOfPicker": "ertyui",
-				"phoneOfPicker": "345678",
-				"destination": "ghjktr",
-				"status": "delivered"
-
-			}
+			const parcel = {
+				id: 2,
+				weight: '232.6',
+				username: 'seyi',
+				emailAddress: 'rexben.rb@gmail.com',
+				pickup: '10, Igbe, Lagos',
+				phone: '345678',
+				picker: 'dfgh',
+				emailOfPicker: 'ertyui',
+				phoneOfPicker: '345678',
+				destination: 'ghjktr',
+				status: 'delivered',
+			};
 			chai.request(app)
-				.post("/api/v1/parcels")
+				.post('/api/v1/parcels')
 				.send(parcel)
 				.end((err, res) => {
 					res.should.have.status(201);
@@ -41,16 +34,12 @@ describe('API route testing', () => {
 					done();
 				});
 		}));
-
 	});
 
-
-
 	describe('GET /v1/parcels', () => {
-
 		it('it should get all parcels', ((done) => {
 			chai.request(app)
-				.get("/api/v1/parcels")
+				.get('/api/v1/parcels')
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('Object');
@@ -59,15 +48,12 @@ describe('API route testing', () => {
 					done();
 				});
 		}));
-
 	});
 
-
 	describe('GET /v1/parcels/:id', () => {
-
 		it('it should get a parcel by its given id', ((done) => {
 			chai.request(app)
-				.get("/api/v1/parcels/" + 2)
+				.get(`/api/v1/parcels/${2}`)
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('Object');
@@ -80,7 +66,7 @@ describe('API route testing', () => {
 
 		it('it should return error 404', ((done) => {
 			chai.request(app)
-				.get("/api/v1/parcels/" + 3)
+				.get(`/api/v1/parcels/${3}`)
 				.end((err, res) => {
 					res.should.have.status(404);
 					res.body.message.should.equal('parcel does not exist');
@@ -88,14 +74,36 @@ describe('API route testing', () => {
 					done();
 				});
 		}));
+	});
 
+	describe('POST /v1/users', () => {
+		it('it should get all parcels', ((done) => {
+			const user = {
+				id: 2,
+				name: 'Ben',
+				email: 'rexben.rb@gmail.com',
+				country: 'Abia',
+				phone: '2345678',
+				password: 'erft9876',
+			};
+			chai.request(app)
+				.post('/api/v1/users')
+				.send(user)
+				.end((err, res) => {
+					res.should.have.status(201);
+					res.body.should.be.a('Object');
+					res.body.should.have.property('success').eql(true);
+					res.body.user.should.have.property('name').eql('Ben');
+					res.body.parcel.id.should.be.a('Number');
+					done();
+				});
+		}));
 	});
 
 	describe('GET /v1/users/:id/parcels', () => {
-
 		it('it should get parcels from a user by its given id', ((done) => {
 			chai.request(app)
-				.get("/v1/users/1/parcels")
+				.get('/v1/users/1/parcels')
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('array');
@@ -106,30 +114,21 @@ describe('API route testing', () => {
 		}));
 	});
 
-	describe('PUT /v1/parcels/:id', () => {
-
-		it('it should produce an error, parcel not found', ((done) => {
+	describe('PUT /v1/parcels/:id/edit', () => {
+		it('it should produce parcel updated successfully', ((done) => {
+			const parcelDestination = {
+				destination: 'Igbe road',
+			};
 			chai.request(app)
-				.put("/api/v1/parcels/3/cancel")
+				.put('/v1/parcels/2/edit')
+				.send(parcelDestination)
 				.end((err, res) => {
-					res.should.have.status(404);
-					res.body.success.should.equal(false);
-					res.body.message.should.equal('parcel not found');
-					done();
-				});
-		}));
-
-		it('it should cancel a parcel by its given id', ((done) => {
-			chai.request(app)
-				.put("/api/v1/parcels/2/cancel")
-				.end((err, res) => {
-					res.should.have.status(200);
+					res.should.have.status(201);
 					res.body.success.should.equal(true);
-					res.body.message.should.equal('Parcel cancelled successfully');
+					res.body.message.should.equal('Parcel updated successfully');
+					res.body.parcel.destination.should.be.equal('Igbe road');
 					done();
 				});
 		}));
 	});
-
-
 });

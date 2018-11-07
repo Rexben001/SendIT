@@ -6,7 +6,7 @@
 	"scripts": {
 		"start": "nodemon app.js --exec babel-node --presets es2015",
 		"lint": "eslint",
-		"test": "mocha --timeout 15000000 --compilers js:babel-core/register ./test/app.js",
+		"test": "mocha --timeout 15000 --compilers js:babel-core/register ./test/app.js",
 		"coverage": "babel-node node_modules/.bin/babel-istanbul cover _mocha -- -R spec --compilers js:babel-core/register"
 	},
 	"repository": {
