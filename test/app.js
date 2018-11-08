@@ -123,17 +123,17 @@ describe('API route testing', () => {
 		}));
 	});
 
-	describe('GET /v1/users/:id/parcels', () => {
-		it('it should get parcels from a user by its given id', ((done) => {
-			chai.request(app)
-				.get(`/api/v1/users/${1}/parcels`)
-				.end((err, res) => {
-					res.should.have.status(200);
-					res.body.should.be.a('Object');
-					res.body.success.should.equal(true);
-					res.body.parcel.should.be.a('array');
-					done();
-				});
-		}));
-	});
+	// describe('GET /v1/users/:id/parcels', () => {
+	// 	it('it should get parcels from a user by its given id', ((done) => {
+	// 		chai.request(app)
+	// 			.get(`/api/v1/users/${1}/parcels`)
+	// 			.end((err, res) => {
+	// 				res.should.have.status(200);
+	// 				res.body.should.be.a('Object');
+	// 				res.body.success.should.equal(true);
+	// 				res.body.parcel.should.be.a('array');
+	// 				done();
+	// 			});
+	// 	}));
+	// });
 });
