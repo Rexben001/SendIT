@@ -11,7 +11,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Rexben001/SendIT.git"
+		"url": "https://github.com/Rexben001/SendIT.git"
 	},
 	"author": "Rexben",
 	"license": "ISC",
