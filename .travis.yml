@@ -10,8 +10,6 @@ before_script:
 
 script: "npm run-script cover"
 
-install: "install: travis_wait 30 mvn install"
-
 after-script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 
 after_succeess:
