@@ -6,7 +6,7 @@ const app = express();
 const router = express.Router();
 
 app.use(bodyParser.urlencoded({
-	extended: true,
+	extended: false,
 }));
 app.use(bodyParser.json());
 
