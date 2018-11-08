@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Create Parcel</title>
+        <link rel="icon" type="image/png" href="img/logo.png"">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="index.html">Home</a>
+                <a href="parcelorder.html" class="active">Create Parcel Order</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="admin.html">Admin</a>
+                <a href="signin.html">SignUp | SignIn</a>
+            </div>
+        </header>
+        <section>
+            <div id="container">
+                <div class="nextnav">
+                    <a href="#" id="create">Create Delivery Parcel Order</a>
+                    <a href="#" id="viewParcel">View Delivery Parcel Orders</a>
+                </div>
+                <form id="createParcel">
+                    <h3>Create a parcel delivery order</h3>
+                    <div id="parcel">
+                        <h4>Parcel</h4>
+                        <p>Weight(cm):</p>
+                        <input type="number" id="weight">
+                    </div>
+                    <h4>From:</h4> 
+                    <br>
+                    <label for="name" name="name">Name: </label> <br>
+                    <input required type="text" id="name" ><br>
+                    <label for="email" name="email">Email Address: </label> <br>
+                    <input required type="email" id="email" ><br>
+                    <label for="address" name="address">Address: </label> <br>
+                    <input required type="text" id="address">
+                    <br>
+                    <label for="phone" name="phone">Phone No.: </label> <br>
+                    <input required type="number" id="phone" ><br>
+                    <h4>To:</h4>
+                    <br>
+                    <label for="name">Name: </label><br>
+                    <input required type="text" id="nameRecipient" ><br>
+                    <label for="email" name="email">Email Address: </label> <br>
+                    <input required type="email" id="emailRecipient" ><br>
+                    <label for="address" name="address">Address: </label> <br>
+                    <input required type="text" id="addressRecipient">
+                    <br>
+                    <label for="phone" name="phone">Phone No.: </label> <br>
+                    <input required type="number" id="phoneRecipient"><br>
+                    <input type="submit"value="Create">
+                </form>
+                <div id="viewAllParcel">
+                    <h3>View all parcel delivery order you have created</h3>
+                    <br>
+                    <h4 id="idOfParcel"><span id="disp">&#8595</span> #i.d 2357</h4>
+                    <div id="parcelOne">
+                        <h3>Parcel</h3>
+                        <p>Weight</p>
+                        <p>Pickup location</p>
+                        <p>Reciever</p>
+                        <p><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                        <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></p>
+                        <p>Price</p>
+                        <br>
+                        <input type="submit" value="Cancel Order">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <script src="javascript/parcel-order.js"></script>
+    </body>
+</html>

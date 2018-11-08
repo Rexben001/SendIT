@@ -20,7 +20,9 @@
 			"tab",
 			{"SwitchCase": 1}
 		],
-		"no-tabs": 0,
+		"no-tabs": [
+            "error",
+            0],
         "linebreak-style": [
             "error",
             "windows"
@@ -29,6 +31,8 @@
             "error",
             "always"
         ],
-        "arrow-body-style": 0
+        "arrow-body-style": [
+            "error",
+            0]
     }
 }

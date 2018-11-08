@@ -1,0 +1,343 @@
+
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+
+}
+
+#siteName{
+    margin: 30px 30px 0px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+}
+
+#siteName:hover{
+    color:  rgb(26, 163, 226);
+}
+
+#about{
+    width: 70%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 20px
+}
+
+img{
+    width: 100%;
+    height: 300px;
+    margin-top: -4px;
+}
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin: auto;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: rgb(26, 163, 226);
+    color: black;
+}
+
+.topnav a.active {
+    background-color: rgb(26, 163, 226);
+    color: white;
+}
+
+#engage{
+    margin-left: 10px;
+}
+
+#register img{
+    width: 15%;
+    height: 15%;
+}
+
+#sends img{
+    width: 15%;
+    height: 15%;
+}
+
+#register, #sends{
+    width: 60%;
+    background: white;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 18px;
+}
+
+#register a, #sends a{
+    text-decoration: none;
+    color: black;
+}
+
+#register a:hover, #sends a:hover{
+    color:  rgb(26, 163, 226);;
+}
+
+footer{
+    clear: both;
+    background: #7eb0f1;
+    color: white;
+    height: 40px; 
+}
+
+footer p{
+    text-align: center;
+    padding: 10px;
+}
+
+#profile{
+    width: 20%;
+    float: left;
+    background: #f2f2f2;
+    padding:50px 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#details{
+    width: 70%;
+    float: left;
+    margin: 20px 20px; 
+}
+
+#profile img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    border: #d30a0a solid 2px;
+}
+
+.nextnav {
+    background-color: #333;
+    width: 100%;
+    opacity: 0.7;
+    margin: 0 auto;
+    height: 50px;
+    text-align: center;
+    overflow: hidden;
+    padding: 15px 0 0 0;
+}
+
+.nextnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 45px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nextnav a:hover {
+    color: #333;
+    opacity: 0.5;
+    background: white
+}
+
+#container{
+    width: 60%;
+    background: #f8f5f5;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+#createParcel, #viewAllParcel{
+    width: 85%;
+    padding: 20px;
+    margin: 10px auto;
+}
+
+ #viewAllParcel{
+    display: none;
+}
+
+#parcelLog{
+    margin: 10px;
+}
+
+#des textarea{
+    width: 300px;
+    min-height: 50px;
+    padding: 5PX;
+    border-radius: 15px;
+    border: #21accf solid 1px;
+    margin: 10px 0;
+}
+
+#parcelLog{
+margin: 20px 50px;
+
+}
+
+#parcelLog button{
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 10px;
+}
+#idOfParcel{
+    background-color: #776;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+#parcelOne{
+    display: block;
+    padding: 0 18px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+
+#parcelOne button{
+    font-size: 15px;
+    padding: 10px;
+}
+
+#des, #sta{
+display: none;
+}
+
+#editDest, #editStat, #saveDest, #saveStat{
+    text-decoration: none;
+    border: #333 solid 1px;
+    border-radius: 5px;
+    padding: 0 3px;
+    margin: 10px;
+    display: block-inline;
+}
+.signImage{
+    height: 80px;
+    width: 100px;
+    text-align: center;
+        display: block;
+    margin: auto
+}
+.welcome{
+    font-weight: bolder;
+    font-size: 30px;
+    display: block;
+    margin: auto;
+    text-align: center
+}
+p.first{
+    margin-top: 30px;
+}
+
+#formBody {
+    position: absolute;
+    width: 340px;
+    top: 50%;
+    left: 50%;
+    margin-top: -200px;
+    margin-left: -170px;
+    background: #f0f0f0;
+    padding: 30px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .1);
+    font-size: 18px;
+    }
+
+    form {
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+    label {
+        color: #555;
+        display: inline-block;
+        margin-left: 18px;
+        padding-top: 10px;
+        font-size: 18px;
+    }
+    
+    input {
+        font-family: "Helvetica Neue", Helvetica, sans-serif;
+        outline: none;
+    }
+    input[type=text],
+    input[type=password],
+    input[type=email],
+    input[type=number],
+    input[type=search] {
+        padding-left: 10px;
+        margin: 10px;
+        margin-top: 5px;
+        margin-left: 18px;
+        width: 290px;
+        height: 32px;
+        background: transparent;
+        border: none;
+        border-bottom: 1px solid #000000;
+        font-size: 18px
+    }
+
+    input[type=checkbox] {
+        margin-left: 20px;
+        margin-top: 30px;
+    }
+    input[type=text]:focus,
+    input[type=password]:focus,
+    input[type=email]:focus,
+    input[type=number]:focus,
+    input[type=search]:focus {
+        border-bottom: 1px solid #e40e0e;
+    }
+    input[type=text]:hover,
+    input[type=password]:hover,
+    input[type=email]:hover,
+    input[type=number]:hover,
+    input[type=search]:hover {
+        border-bottom: 1px solid #6fc3d8;
+    }
+
+   
+    input[type=submit] {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    margin-top: 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #7eb0f1;
+    cursor: pointer;
+    }
+input[type=submit]:hover{
+    opacity:0.7;
+}
+
+    #formSignUp{
+        display: none;
+    }
+
+    form a{
+        text-decoration: none;
+        padding: 12px 12px;
+        color: blueviolet;
+    }
+    
+    form a:hover{
+        color: #d30a0a;
+    }
