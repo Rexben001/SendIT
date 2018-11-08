@@ -5,11 +5,10 @@
 	"main": "app.js",
 	"scripts": {
 		"start": "nodemon app.js --exec babel-node --presets es2015",
-		"lint": "eslint",
+		"lint": "eslint **/*.js --ignore-pattern node_modules/",
 		"test": "mocha --timeout 15000 --compilers js:babel-core/register ./test/app.js",
-    "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha",
-    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js",
-    "test-travis": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- --recursive"
+    "cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- -R spec test/app.js --recursive",
+    "coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 	},
 	"repository": {
 		"type": "git",
