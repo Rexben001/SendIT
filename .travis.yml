@@ -8,7 +8,7 @@ before_script:
   - npm install
   - npm install coveralls
 
-script: "npm run script cover"
+script: "npm run-script cover"
 
 after-script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
 
