@@ -12,7 +12,3 @@ before_script:
 
 script: 
   - npm run-script test
-
-
-after_success:
-  - npm run coveralls
