@@ -107,10 +107,6 @@ router.get('/v1/users/:id/parcels', (req, res) => {
 				parcel: singleParcel.parcels,
 			});
 		}
-		return res.status(404).send({
-			success: false,
-			message: 'parcels not found',
-		});
 	});
 });
 
