@@ -11,9 +11,8 @@ before_script:
   - npm install coveralls
 
 script: 
-  - npm run-script cover --watch=false
+  - npm run-script test
 
-after-script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
 
 after_succeess:
   - npm run coveralls

@@ -6,9 +6,9 @@
 	"scripts": {
 		"start": "nodemon app.js --exec babel-node --presets es2015",
 		"lint": "eslint",
-		"test": "mocha --silent --compilers js:babel-core/register ./test/app.js",
+		"test": "mocha --exit --compilers js:babel-core/register  ./test/app.js",
 		"cover": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha -- -R spec test/app.js",
-		"coveralls": "npm run cover -- --report lcovonly && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
+		"coveralls": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
 	},
 	"repository": {
 		"type": "git",
