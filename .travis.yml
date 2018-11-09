@@ -20,4 +20,5 @@ after_succeess:
 deploy: 
   skip-cleanup: true
   github-token: $GITHUB_TOKEN
+  all_branches: true
 
