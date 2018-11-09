@@ -16,9 +16,3 @@ script:
 
 after_succeess:
   - npm run coveralls
-
-deploy: 
-  skip-cleanup: true
-  github-token: $GITHUB_TOKEN
-  all_branches: true
-
