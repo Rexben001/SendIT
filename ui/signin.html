@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign In</title>
+        <link rel="icon" type="image/png" href="img/logo.png"">
+        <link rel="stylesheet" href="css/style.css">
+    </head>
+    <body>
+        <header>
+            <div class="topnav">
+                <a href="index.html">Home</a>
+                <a href="parcelorder.html">Create Parcel Order</a>
+                <a href="userprofile.html">My Profile</a>
+                <a href="admin.html">Admin</a>
+                <a href="signin.html" class="active">SignUp | SignIn</a>
+            </div>
+        </header>
+        <section>
+            <div id="formBody">
+                <form id="formSignIn">
+                    <h1>Sign In</h1>
+                    <label for="username" name="username">Username or Email</label>
+                    <br>
+                    <input required type="text|email" id="username">
+                    <br>
+                    <label for="password" name="password">Password</label>
+                    <br>
+                    <input required type="password" id="password">
+                    <br>
+                    <button type="submit">Sign In</button>
+                    <br>
+                    <a href="#" id="signIn">Don't have an account? Create one.</a>
+                </form>
+                <form id="formSignUp">
+                    <h1>Sign Up</h1>
+                    <label for="username" name="username">Full Name</label>
+                    <br>
+                    <input required type="username" id="username">
+                    <br>
+                    <label for="email" name="email">Email</label>
+                    <br>
+                    <input required type="email" id="email">
+                    <br>
+                    <label for="country" name="country">Country</label>
+                    <br>
+                    <input required type="country" id="country">
+                    <br>
+                    <label for="phone" name="phone">Phone No.</label>
+                    <br>
+                    <input required type="phone" id="phone">
+                    <br>
+                    <label for="password" name="password">Password</label>
+                    <br>
+                    <input required type="password" id="password">
+                    <br>
+                    <label for="password" name="password">Confirm Password</label>
+                    <br>
+                    <input required type="password" id="confirm-password">
+                    <br>
+                    <label><input type="checkbox" name="agree">I have read, understood and agree to be bound by the 
+                        terms and conditons of SendIT.</label>
+                    <button type="submit">Sign Up</button>
+                    <br>
+                    <a href="#" id="signUp">Already have an account? Sign In.</a>
+                </form>
+            </div>
+        </section>
+        <script src="javascript/sign-in.js"></script>
+    </body>
+</html>

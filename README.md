@@ -1,4 +1,5 @@
 # SendIT
+<<<<<<< HEAD
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
 #Some of the features of the App
@@ -10,3 +11,8 @@ SendIT is a courier service that helps users deliver parcels to different destin
 6. Admin can change the status and present location of a parcel delivery order.
 
 #Andela Developer Challenge
+=======
+A courier service project
+
+https://rexben001.github.io/SendIT/
+>>>>>>> d78d4f2bcf82760e6612fd98ecb566dabedac064
