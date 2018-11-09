@@ -1,3 +1,6 @@
+
+[![GitHub issues](https://img.shields.io/github/issues/Rexben001/SendIT.svg?style=plastic)](https://github.com/Rexben001/SendIT/issues)
+
 # SendIT
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
