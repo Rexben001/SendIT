@@ -31,7 +31,7 @@ describe('API route testing', () => {
 					res.body.should.have.property('success').eql(true);
 					res.body.parcel.should.have.property('picker').eql('dfgh');
 					res.body.parcel.id.should.be.a('Number');
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -45,7 +45,7 @@ describe('API route testing', () => {
 					res.body.should.be.a('Object');
 					res.body.parcel.should.have.length(1);
 					res.body.success.should.equal(true);
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -60,7 +60,7 @@ describe('API route testing', () => {
 					res.body.success.should.equal(true);
 					res.body.parcel.should.have.property('picker').eql('dfgh');
 					res.body.parcel.id.should.be.a('Number');
-					done();
+					done(err);
 				});
 		}));
 
@@ -71,7 +71,7 @@ describe('API route testing', () => {
 					res.should.have.status(404);
 					res.body.message.should.equal('parcel does not exist');
 					res.body.success.should.equal(false);
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -87,7 +87,7 @@ describe('API route testing', () => {
 					res.should.have.status(201);
 					res.body.success.should.equal(true);
 					res.body.message.should.equal('Parcel updated successfully');
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -97,7 +97,7 @@ describe('API route testing', () => {
 				.put(`/api/v1/parcels/${2}/cancel`)
 				.end((err, res) => {
 					res.should.have.status(200);
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -118,7 +118,7 @@ describe('API route testing', () => {
 					res.should.have.status(201);
 					res.body.should.be.a('Object');
 					res.body.should.have.property('success').eql(true);
-					done();
+					done(err);
 				});
 		}));
 	});
@@ -132,7 +132,7 @@ describe('API route testing', () => {
 					res.body.should.be.a('Object');
 					res.body.success.should.equal(true);
 					res.body.parcel.should.be.a('array');
-					done();
+					done(err);
 				});
 		}));
 	});
