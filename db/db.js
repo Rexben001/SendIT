@@ -7,9 +7,9 @@ const db = {
 			country: 'Abia',
 			phone: '2345678',
 			password: 'erft9876',
-			parcels: []
+			parcels: [],
 		},
-	]
+	],
 };
 
 

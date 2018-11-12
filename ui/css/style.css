@@ -1,0 +1,316 @@
+
+*{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 0px;
+
+}
+
+#siteName{
+    margin: 30px 30px 0px;
+    text-align: center;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 35px;
+}
+
+#siteName:hover{
+    color:  rgb(26, 163, 226);
+}
+
+#about{
+    width: 70%;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 0 auto 30px;
+    font-size: 20px
+}
+
+img{
+    width: 100%;
+    height: 300px;
+    margin-top: -4px;
+}
+
+.topnav {
+    background-color: #333;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    margin: auto;
+}
+
+.topnav a {
+    float: left;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 36px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+.topnav a:hover {
+    background-color: rgb(26, 163, 226);
+    color: black;
+}
+
+.topnav a.active {
+    background-color: rgb(26, 163, 226);
+    color: white;
+}
+
+#engage{
+    margin-left: 10px;
+}
+
+#register img{
+    width: 15%;
+    height: 15%;
+}
+
+#sends img{
+    width: 15%;
+    height: 15%;
+}
+
+#register, #sends{
+    width: 60%;
+    background: white;
+    border-radius: 10px;
+    margin: 20px auto;
+    padding: 10px;
+    text-align: center;
+    font-size: 20px;
+}
+
+#register a, #sends a{
+    text-decoration: none;
+    color: black;
+}
+
+#register a:hover, #sends a:hover{
+    color:  rgb(26, 163, 226);;
+}
+
+footer{
+    clear: both;
+    background: #7eb0f1;
+    color: white;
+    height: 50px; 
+}
+
+footer p{
+    text-align: center;
+    padding: 10px;
+}
+
+#formBody{
+    width: 70%;
+    margin: 0 auto;
+    background: #f2f2f2;
+    text-align: center;    
+}
+
+#formSignIn, #formSignUp{
+    margin: 0 auto;
+    padding: 10px;
+    width: 85%;
+}
+
+label{
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+}
+
+input{
+    padding: 15px;
+    box-sizing: border-box;
+    width: 50%;
+    margin: 5px 0 22px;
+    border-radius: 15px;
+}
+
+input:focus{
+    background-color: #dddddd;
+    outline: none;
+}
+
+button{
+    background-color: #23282e;
+    border: 0;
+    box-sizing: border-box;
+    color: #fff;
+    font-size: 20px;
+    margin-top: 20px 0;
+    padding: 10px 15px;
+    width: 20%;
+    box-sizing: border-box;
+    opacity: 0.9;
+    border-radius: 10px;
+}
+
+button:hover{
+    opacity: 1;
+}
+
+form a{
+    text-decoration: none;
+    padding: 12px 12px;
+    color: blueviolet;
+}
+
+form a:hover{
+    color: #d30a0a;
+}
+
+#formSignUp{
+    display: none;
+}
+
+#profile{
+    width: 20%;
+    float: left;
+    background: #f2f2f2;
+    padding:50px 10px;
+    text-align: center;
+    font-weight: bold;
+}
+
+#details{
+    width: 70%;
+    float: left;
+    margin: 20px 20px; 
+}
+
+#profile img{
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    border: #d30a0a solid 2px;
+}
+
+.nextnav {
+    background-color: #333;
+    width: 100%;
+    opacity: 0.7;
+    margin: 0 auto;
+    height: 50px;
+    text-align: center;
+    overflow: hidden;
+    padding: 15px 0 0 0;
+}
+
+.nextnav a {
+    color: #f2f2f2;
+    text-align: center;
+    padding: 30px 45px;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.nextnav a:hover {
+    color: rgb(26, 163, 226);
+    opacity: 0.5;
+}
+
+#container{
+    width: 60%;
+    background: #f8f5f5;
+    margin: 50px auto;
+    border-radius: 10px;
+}
+
+#createParcel, #viewAllParcel{
+    width: 85%;
+    padding: 20px;
+    margin: 10px auto;
+}
+
+ #viewAllParcel{
+    display: none;
+}
+
+#createParcel input, #createParcel label{
+    padding: 5px 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    border-radius: 5px;
+    width: 80%; 
+    margin: 10px;
+}
+
+#parcel, #parcel input{
+    width: 60%; 
+    font-size: 20px;
+    padding: 10px;
+    box-sizing: border-box;
+    border-radius: 15px;
+}
+
+#parcelLog{
+    margin: 10px;
+    vertical-align: ce
+}
+
+#parcelLog input, #parcelLog button{
+    width: 200px; 
+    font-size: 20px;
+    padding: 5px;
+    box-sizing: border-box;
+    border-radius: 10px;
+}
+
+#des textarea{
+    width: 300px;
+    min-height: 50px;
+    padding: 5PX;
+    border-radius: 15px;
+    border: #f2f2f2 solid 3px;
+    margin: 10px 0;
+}
+
+#parcelLog{
+margin: 20px;
+}
+
+#parcelLog button{
+    width: fit-content;
+    padding: 10px 20px;
+    margin: 10px;
+}
+#idOfParcel{
+    background-color: #776;
+    color: white;
+    padding: 10px;
+    border: none;
+    outline: none;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+#parcelOne{
+    display: block;
+    padding: 0 18px;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+    background-color: #f1f1f1;
+}
+
+
+#parcelOne button{
+    font-size: 15px;
+    padding: 10px;
+}
+
+#des, #sta{
+display: none;
+}
+
+#editDest, #editStat, #saveDest, #saveStat{
+    text-decoration: none;
+    border: #333 solid 1px;
+    border-radius: 5px;
+    padding: 0 3px;
+    margin: 10px
+}
