@@ -11,4 +11,4 @@ before_script:
   - npm install coveralls
 
 script: 
-  - npm run-script test
+  - npm run test
