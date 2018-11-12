@@ -1,8 +1,17 @@
 language: node_js
+
 node_js: 
-  - "stable"
+  - "8.9.4"
 cache:
   directories:
     - "node_modules"
  after_script:
     - npm run coveralls
+
+before_script:
+  - npm install
+  - npm install coveralls
+
+script: 
+  - npm run test
+

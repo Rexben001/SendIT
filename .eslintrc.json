@@ -4,7 +4,8 @@
     "env": {
         "browser": true,
         "node": true,
-        "es6": true
+        "es6": true,
+        "mocha": true
     },
     "parserOptions": {
         "sourceType": "module",
@@ -15,22 +16,19 @@
     },
     "rules": {
         "indent": [
-            "2",
-						"tab",
-						{"SwitchCase": 1}
+            2,
+			"tab",
+			{"SwitchCase": 1}
 		],
 		"no-tabs": 0,
         "linebreak-style": [
             "error",
             "windows"
         ],
-        "quotes": [
-            "error",
-            "single"
-        ],
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "arrow-body-style": 0
     }
 }
