@@ -147,7 +147,6 @@ footer p{
 #parcelLog{
 margin: 20px 50px;
 
-}
 
 #parcelLog button{
     width: fit-content;
@@ -378,3 +377,4 @@ input[type=submit]:hover{
     text-align: right;
     margin-top: 30px;
 }
+
