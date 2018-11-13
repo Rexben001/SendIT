@@ -1,4 +1,3 @@
-
 *{
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     margin: 0px;
@@ -125,14 +124,12 @@ footer p{
 }
 
 #container{
-    width: 70%;
+    width: 80%;
     background: #f8f5f5;
     margin: 50px auto;
     border-radius: 10px;
     padding: 10px
 }
-
-
 
 #parcelLog{
     margin: 10px;
@@ -150,7 +147,6 @@ footer p{
 #parcelLog{
 margin: 20px 50px;
 
-}
 
 #parcelLog button{
     width: fit-content;
@@ -213,12 +209,9 @@ p.first{
 }
 
 #formBody {
-    position: absolute;
-    width: 340px;
-    top: 50%;
-    left: 50%;
-    margin-top: -200px;
-    margin-left: -170px;
+    margin: auto;
+    width: 500px;
+    margin-top: 50px;
     background: #f0f0f0;
     padding: 30px;
     border-radius: 10px;
@@ -229,7 +222,6 @@ p.first{
 
     form {
         margin: 0 auto;
-        margin-top: 20px;
     }
     label {
         color: #555;
@@ -260,10 +252,7 @@ p.first{
         font-size: 18px
     }
 
-    input[type=checkbox] {
-        margin-left: 20px;
-        margin-top: 30px;
-    }
+
     input[type=text]:focus,
     input[type=password]:focus,
     input[type=email]:focus,
@@ -280,19 +269,32 @@ p.first{
     }
 
    
-    input[type=submit] {
+    form input[type=submit] {
     border: 0;
     box-sizing: border-box;
     font-size: 20px;
-    margin-top: 20px;
     padding: 10px 15px;
     box-sizing: border-box;
     border-radius: 10px;
     background: #7eb0f1;
     cursor: pointer;
+    text-align: center;
+    margin: 20px auto 0;
+    display: block;
     }
 input[type=submit]:hover{
     opacity:0.7;
+}
+.column {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px;
+}
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
     #formSignUp{
@@ -350,3 +352,29 @@ input[type=submit]:hover{
       #collapse{
           margin-bottom: 30px;
       }
+      
+#sendit{
+    font-family: cursive;
+    color: #1C6EA4;
+    font-weight: 500;
+}
+
+#searchbox input[type=submit] {
+    border: 0;
+    box-sizing: border-box;
+    font-size: 20px;
+    padding: 10px 15px;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: #7eb0f1;
+    cursor: pointer;
+    }
+input[type=submit]:hover{
+    opacity:0.7;
+}
+
+#searchbox{
+    text-align: right;
+    margin-top: 30px;
+}
+

@@ -1,4 +1,3 @@
-
 const dest = document.getElementById('dest');
 const destination = document.getElementById('destination');
 const stat = document.getElementById('stat');
@@ -32,5 +31,3 @@ editDest.addEventListener('click', function(){
             stat.innerHTML = status.value;
         });
         
-        
-    

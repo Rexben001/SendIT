@@ -1,121 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Create Parcel</title>
-        <link rel="icon" type="image/png" href="img/logo.png"">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></head>
-    </head>
-    <body>
-        <header>
-            <div class="topnav">
-                <a href="index.html">Home</a>
-                <a href="parcelorder.html" class="active">Create Parcel Order</a>
-                <a href="userprofile.html">My Profile</a>
-                <a href="admin.html">Admin</a>
-                <a href="signin.html">SignUp | SignIn</a>
-            </div>
-        </header>
-        <section>
-            <div id="container">
-                <div id="collapse">
-                        <h3 id="formHeader"><i class="fa fa-angle-double-down"></i>
-                        Create a parcel delivery order</h3>
-                <form id="createParcel">
-                    <div id="parcel">
-                        <h4>Parcel</h4>
-                        <p>Weight(cm):</p>
-                        <input type="number" id="weight">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Create Parcel</title>
+    <link rel="icon" type="image/png" href="img/logo.png"">
+        <link rel=" stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="topnav">
+            <a href="index.html">Home</a>
+            <a href="parcelorder.html" class="active">Create Parcel Order</a>
+            <a href="viewparcels.html">View All Parcels</a>
+            <a href="userprofile.html">My Profile</a>
+            <a href="admin.html">Admin</a>
+            <a href="signin.html">SignUp | SignIn</a>
+        </div>
+    </header>
+    <section>
+        <div id="containerCreate">
+                <h3>Create a parcel delivery order</h3>
+                <div id="parcel">
+                    <h4>Parcel</h4>
+                    <p>Weight(cm):</p>
+                    <input type="number" id="weight">
+                </div>
+                <div class="row">
+                    <div class="column">
+                            <form id="createParcel">
+                        <h4>From:</h4>
+                        <br>
+                        <label for="name" name="name">Name: </label> <br>
+                        <input required type="text" id="name"><br>
+                        <label for="email" name="email">Email Address: </label> <br>
+                        <input required type="email" id="email"><br>
+                        <label for="address" name="address">Address: </label> <br>
+                        <input required type="text" id="address">
+                        <br>
+                        <label for="phone" name="phone">Phone No.: </label> <br>
+                        <input required type="number" id="phone"><br>
+                        </form>
                     </div>
-                    <h4>From:</h4> 
-                    <br>
-                    <label for="name" name="name">Name: </label> <br>
-                    <input required type="text" id="name" ><br>
-                    <label for="email" name="email">Email Address: </label> <br>
-                    <input required type="email" id="email" ><br>
-                    <label for="address" name="address">Address: </label> <br>
-                    <input required type="text" id="address">
-                    <br>
-                    <label for="phone" name="phone">Phone No.: </label> <br>
-                    <input required type="number" id="phone" ><br>
-                    <h4>To:</h4>
-                    <br>
-                    <label for="name">Name: </label><br>
-                    <input required type="text" id="nameRecipient" ><br>
-                    <label for="email" name="email">Email Address: </label> <br>
-                    <input required type="email" id="emailRecipient" ><br>
-                    <label for="address" name="address">Address: </label> <br>
-                    <input required type="text" id="addressRecipient">
-                    <br>
-                    <label for="phone" name="phone">Phone No.: </label> <br>
-                    <input required type="number" id="phoneRecipient"><br>
-                    <input type="submit"value="Create">
-                </form>
-            </div>
-                    <h3>View all parcel delivery order you have created</h3>
-                    <br>
-                    <table class="blueTable">
-                        <thead>
-                        <tr>
-                        <th>id</th>
-                        <th>Parcel</th>
-                        <th>Weight</th>
-                        <th>Reciever</th>
-                        <th>Destination</th>
-                        <th>Status</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                        <td>1</td>
-                        <td>Letter</td>
-                        <td>12.9 kg</td>
-                        <td>James</td>
-                        <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
-            <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
-                        <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
-            <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Rice</td>
-                            <td>12.9 kg</td>
-                            <td>James</td>
-                            <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
-            <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
-                            <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
-            <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
+                    <div class="column">
+                            <form id="createParcel">
+                        <h4>To:</h4>
+                        <br>
+                        <label for="name">Name: </label><br>
+                        <input required type="text" id="nameRecipient"><br>
+                        <label for="email" name="email">Email Address: </label> <br>
+                        <input required type="email" id="emailRecipient"><br>
+                        <label for="address" name="address">Address: </label> <br>
+                        <input required type="text" id="addressRecipient">
+                        <br>
+                        <label for="phone" name="phone">Phone No.: </label> <br>
+                        <input required type="number" id="phoneRecipient"><br>
+                        <input type="submit" value="Create">
+            </form>
+        </div>
+        </div>
+    </section>
+    <script src="javascript/parcel-order.js"></script>
+</body>
 
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Letter</td>
-                                <td>12.9 kg</td>
-                                <td>James</td>
-                                <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
-            <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
-                                <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
-            <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
-
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Letter</td>
-                                    <td>12.9 kg</td>
-                                    <td>James</td>
-                                    <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
-            <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
-                                    <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
-            <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
-
-                                    </tr>
-                        </tbody>
-                        </table>
-             </div>      
-        </section>
-        <script src="javascript/parcel-order.js"></script>
-    </body>
 </html>
