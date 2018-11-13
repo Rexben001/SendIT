@@ -20,22 +20,73 @@
         </div>
     </header>
     <section>
-        <div id="parcelLog">
-            <h3>Parcel Log of all delivery parcel created</h3>
-            <br>
-            <input type="search" id="search" placeholder="Search for parcel">
+            <div id="container">
+            <table class="blueTable">
+                            <thead>
+                            <tr>
+                            <th>id</th>
+                            <th>User</th>
+                            <th>Parcel</th>
+                            <th>Weight</th>
+                            <th>Reciever</th>
+                            <th>Destination</th>
+                            <th>Status</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                            <td>1</td>
+                            <td>Ben</td>
+                            <td>Letter</td>
+                            <td>12.9 kg</td>
+                            <td>James</td>
+                            <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
+                            <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
+                <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+
+                                <td>Ben</td> 
+                                <td>Letter</td>
+                               <td>12.9 kg</td>
+                                <td>James</td>
+                                <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
+                                <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
+                <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
     
-             <input id="search" type="submit" value="Search">
-             <br>
-            <p class="first">id: 23rjlo5</p>
-            <p>Sender: User 1</p> 
-            <p><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
-            <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></p>
-            <p><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
-            <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></p>
-            <br>
-            <br>
-        </div>
+                                </tr>
+                                <tr>
+                                    <td>3</td>
+    
+                                    <td>Ben</td> 
+                                    <td>Letter</td>
+                                   <td>12.9 kg</td>
+                                    <td>James</td>
+                                    <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
+                                    <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
+                <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
+    
+                                    </tr>
+                                    <tr>
+                                        <td>4</td>
+        
+                                        <td>Ben</td> 
+                                        <td>Letter</td>
+                                       <td>12.9 kg</td>
+                                        <td>James</td>
+                                        <td><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></td>
+                                        <td><span id="stat">Status </span> <a href="#" id="editStat">Edit</a></p>
+                <p id="sta"><input id="status" type="text"><a href="#" id="saveStat">Save</a></td>
+    
+                                        </tr>
+                            </tbody>
+                            </table>
+                 </div>
     </section>
     
     <script src="javascript/admin.js"></script>
