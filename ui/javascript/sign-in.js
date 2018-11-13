@@ -11,7 +11,6 @@ signUp.style.display = "block";
 document.getElementById('signUp').addEventListener('click', function(){
     signUp.style.display = "none";
     signIn.style.display = "block";
-    console.log('hey')
     });
 
 signUp.addEventListener('submit', function(){
@@ -21,4 +20,5 @@ signUp.addEventListener('submit', function(){
     if(confirmPassword.value !== password.value){
         alert('Password does not match');
     }
+    
 });

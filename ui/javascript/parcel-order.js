@@ -1,37 +1,20 @@
+const formHeader = document.getElementById('formHeader');
 const createParcel = document.getElementById('createParcel');
-const viewAllParcel = document.getElementById('viewAllParcel');
-
-
-
-document.getElementById('create').addEventListener('click', function(){
-   viewAllParcel.style.display = 'none';
-   createParcel.style.display = "block";
-});
-
-
-document.getElementById('viewParcel').addEventListener('click', function(){
-    createParcel.style.display = 'none';
-    viewAllParcel.style.display = "block";
-    });
-
-document.getElementById('idOfParcel').addEventListener('click', function(){
-let parcel = document.getElementById('parcelOne');
-let disp = document.getElementById('disp');
-
-
-if(parcel.style.display != 'none'){
-    parcel.style.display = 'none';
-    disp.innerHTML = "<strong>&#8594</strong>";
-}else{
-    parcel.style.display = 'block';
-    disp.innerHTML = "<strong>&#8595</strong>"
-
-}
-});
 const dest = document.getElementById('dest');
 const destination = document.getElementById('destination');
-
+const stat = document.getElementById('stat');
+const status = document.getElementById('status');
 const editDest = document.getElementById('editDest');
+const editStat = document.getElementById('editStat');
+
+
+formHeader.addEventListener('click', function(){
+    if(createParcel.style.display === 'block'){
+           createParcel.style.display = 'none';
+    }else{
+        createParcel.style.display = "block";
+    }
+});
 
 
 editDest.addEventListener('click', function(){
@@ -45,4 +28,19 @@ editDest.addEventListener('click', function(){
         editDest.style.display = 'inline';
         dest.innerHTML = destination.value;
     });
+    
+    
+    editStat.addEventListener('click', function(){
+        document.getElementById('sta').style.display = 'block';
+        editStat.style.display = 'none';
+        status.value = stat.innerHTML;
+        });
+    
+        document.getElementById('saveStat').addEventListener('click', function(){
+            document.getElementById('sta').style.display = 'none';
+            editStat.style.display = 'inline';
+            stat.innerHTML = status.value;
+        });
+        
+        
     
