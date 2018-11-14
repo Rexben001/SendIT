@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Sign In</title>
+        <link rel="icon" type="image/png" href="img/logo.png">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+</head>
+<body>
+    <header>
+        <nav id="navbar" class="">
+            <div class="nav-wrapper">
+              <div class="logo">
+                <a href="index.html"><i class="fa fa-bus"></i>  SendIT</a>
+              </div>
+              
+                  <!-- Navbar Links -->
+                  <ul id="menu">
+                 <li><li><a href="index.html">Home</a></li></li>
+                    <li><a href="parcelorder.html">Create Parcel Order</a></li><!--
+                    --><li><a href="viewparcels.html">View All Parcels</a></li><!--
+                    --><li><a href="userprofile.html">My Profile</a></li><!--
+                    --><li><a href="admin.html">Admin</a></li><!--
+                    --><li><a href="signin.html">SignUp | SignIn</a></li>
+                  </ul>
+                </div>
+              </nav>
+              
+            </header>
+        <section>
+            <div id="formBody">
+                <form id="formSignIn">
+                    <h3 class="welcome">Welcome back to<span id="sendit"> SendIT</span></h1>
+                    <br>
+                    <label for="username" name="username"><i class="fas fa-user-circle"></i> Username or Email: </label>
+                    <br>
+                    <input required type="text" id="username">
+                    <br>
+                    <label for="password" name="password"><i class="fa fa-lock"></i> Password: </label>
+                    <br>
+                    <input required type="password" id="password">
+                    <br>
+                    <input type="submit" value="Login">
+                    <br>
+                    <br>
+                    <a href="#" id="signIn">Don't have an account? Create one.</a>
+                </form>
+                <form id="formSignUp">
+                        <h3 class="welcome">Welcome to<span id="sendit"> SendIT</span></h1>
+                    <br>
+                    <label for="username" name="username"><i class="fas fa-user-circle"></i> Full Name: </label>
+                    <br>
+                    <input required type="text" id="username">
+                    <br>
+                    <label for="email" name="email"> <i class="fa fa-envelope"></i> Email: </label>
+                    <br>
+                    <input required type="email" id="email">
+                    <br>
+                    <label for="password" name="password"><i class="fa fa-lock"></i> Password: </label>
+                    <br>
+                    <input required type="password" id="password">
+                    <br>
+                    <label for="password" name="password"><i class="fa fa-lock"></i> Confirm Password: </label>
+                    <br>
+                    <input required type="password" id="confirm-password">
+                    <br>
+                    <input type="submit" value="Sign Up">
+                    <br>
+                    <br>
+                    <a href="#" id="signUp">Already have an account? Sign In.</a>
+                </form>
+            </div>
+        </section>
+        <script src="javascript/sign-in.js"></script>
+    </body>
+</html>

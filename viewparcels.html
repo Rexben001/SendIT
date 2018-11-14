@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>View All Parcels</title>
+    <link rel="icon" type="image/png" href="img/logo.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+</head>
+<body>
+    <header>
+        <nav id="navbar" class="">
+            <div class="nav-wrapper">
+              <div class="logo">
+                <a href="index.html"><i class="fa fa-bus"></i>  SendIT</a>
+              </div>
+              
+                  <!-- Navbar Links -->
+                  <ul id="menu">
+                 <li><li><a href="index.html">Home</a></li></li>
+                    <li><a href="parcelorder.html">Create Parcel Order</a></li><!--
+                    --><li><a href="viewparcels.html">View All Parcels</a></li><!--
+                    --><li><a href="userprofile.html">My Profile</a></li><!--
+                    --><li><a href="admin.html">Admin</a></li><!--
+                    --><li><a href="signin.html">SignUp | SignIn</a></li>
+                  </ul>
+                </div>
+              </nav>
+              
+            </header>
+            <section>
+                    <div id="viewAllParcel">
+                            <h3>View all parcel delivery order you have created</h3>
+                            <br>
+                            <h4 id="idOfParcel"><span id="disp">&#8595</span> #i.d 2357</h4>
+                            <div id="parcelOne">
+                                <h3>Parcel</h3>
+                                <p>Weight</p>
+                                <p>Pickup location</p>
+                                <p>Reciever</p>
+                                <p><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                                <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></p>
+                                <p>Price</p>
+                                <br>
+                                <input type="submit" value="Cancel Order">
+            </section>
+            <script src="javascript/viewparcels.js"></script>
+</body>
+</html>
