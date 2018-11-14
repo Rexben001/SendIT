@@ -41,3 +41,6 @@ editDest.addEventListener('click', function(){
     //         editStat.style.display = 'inline';
     //         stat.innerHTML = status.value;
     //     });
+
+
+    

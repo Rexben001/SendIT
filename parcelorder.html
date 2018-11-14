@@ -6,26 +6,36 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Create Parcel</title>
     <link rel="icon" type="image/png" href="img/logo.png">
-        <link rel=" stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 </head>
-
 <body>
     <header>
-        <div class="topnav">
-            <a href="index.html">Home</a>
-            <a href="parcelorder.html" class="active">Create Parcel Order</a>
-            <a href="viewparcels.html">View All Parcels</a>
-            <a href="userprofile.html">My Profile</a>
-            <a href="admin.html">Admin</a>
-            <a href="signin.html">SignUp | SignIn</a>
-        </div>
-    </header>
+        <nav id="navbar" class="">
+            <div class="nav-wrapper">
+              <div class="logo">
+                <a href="index.html"><i class="fa fa-bus"></i>  SendIT</a>
+              </div>
+          
+              <!-- Navbar Links -->
+              <ul id="menu">
+             <li><li><a href="index.html">Home</a></li></li>
+                <li><a href="parcelorder.html">Create Parcel Order</a></li><!--
+                --><li><a href="viewparcels.html">View All Parcels</a></li><!--
+                --><li><a href="userprofile.html">My Profile</a></li><!--
+                --><li><a href="admin.html">Admin</a></li><!--
+                --><li><a href="signin.html">SignUp | SignIn</a></li>
+              </ul>
+            </div>
+          </nav>
+          
+        </header>
     <section>
         <div id="containerCreate">
                 <h3>Create a parcel delivery order</h3>
                 <div id="parcel">
                     <h4>Parcel</h4>
-                    <p>Weight(cm):</p>
+                    <p><i class="fas fa-briefcase"></i> Weight(cm):</p>
                     <input type="number" id="weight">
                 </div>
                 <div id="parcelCreate">
@@ -33,14 +43,14 @@
                             <form id="createParcel">
                         <h4>From:</h4>
                         <br>
-                        <label for="name" name="name">Name: </label> <br>
+                        <label for="name" name="name"><i class="fas fa-user-circle"></i> Name: </label> <br>
                         <input required type="text" id="name"><br>
-                        <label for="email" name="email">Email Address: </label> <br>
+                        <label for="email" name="email"><i class="fas fa-envelope"></i> Email Address: </label> <br>
                         <input required type="email" id="email"><br>
-                        <label for="address" name="address">Address: </label> <br>
+                        <label for="address" name="address"><i class="fas fa-home"></i> Address: </label> <br>
                         <input required type="text" id="address">
                         <br>
-                        <label for="phone" name="phone">Phone No.: </label> <br>
+                        <label for="phone" name="phone"><i class="fas fa-mobile-alt"></i> Phone No.: </label> <br>
                         <input required type="number" id="phone"><br>
                         </form>
                     </div>
@@ -48,14 +58,14 @@
                             <form id="createParcel">
                         <h4>To:</h4>
                         <br>
-                        <label for="name">Name: </label><br>
+                        <label for="name"><i class="fas fa-user-circle"></i> Name: </label><br>
                         <input required type="text" id="nameRecipient"><br>
-                        <label for="email" name="email">Email Address: </label> <br>
+                        <label for="email" name="email"><i class="fas fa-envelope"></i> Email Address: </label> <br>
                         <input required type="email" id="emailRecipient"><br>
-                        <label for="address" name="address">Address: </label> <br>
+                        <label for="address" name="address"><i class="fas fa-home"></i> Address: </label> <br>
                         <input required type="text" id="addressRecipient">
                         <br>
-                        <label for="phone" name="phone">Phone No.: </label> <br>
+                        <label for="phone" name="phone"><i class="fas fa-mobile-alt"></i> Phone No.: </label> <br>
                         <input required type="number" id="phoneRecipient"><br>
                         
             </form>
