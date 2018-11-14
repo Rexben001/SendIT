@@ -7,19 +7,29 @@
     <title>Admin Page</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 </head>
 <body>
     <header>
-        <div class="topnav">
-            <a href="index.html">Home</a>
-            <a href="viewparcels.html">View All Parcels</a>
-            <a href="parcelorder.html">Create Parcel Order</a>
-            <a href="userprofile.html">My Profile</a>
-            <a href="admin.html" class="active">Admin</a>
-            <a href="signin.html">SignUp | SignIn</a>
-
-        </div>
-    </header>
+        <nav id="navbar" class="">
+            <div class="nav-wrapper">
+              <div class="logo">
+                <a href="index.html"><i class="fa fa-bus"></i>  SendIT</a>
+              </div>
+          
+              <!-- Navbar Links -->
+              <ul id="menu">
+             <li><li><a href="index.html">Home</a></li></li>
+                <li><a href="parcelorder.html">Create Parcel Order</a></li><!--
+                --><li><a href="viewparcels.html">View All Parcels</a></li><!--
+                --><li><a href="userprofile.html">My Profile</a></li><!--
+                --><li><a href="admin.html">Admin</a></li><!--
+                --><li><a href="signin.html">SignUp | SignIn</a></li>
+              </ul>
+            </div>
+          </nav>
+          
+        </header>
     <section>
         <div id="searchbox">
             <span><input type="search" id="search" placeholder="Search for parcel">
@@ -27,6 +37,7 @@
             </div>
              <br>
              <div id="container">
+                    
                     <table class="blueTable">
                                     <thead>
                                     <tr>
@@ -37,7 +48,11 @@
                                     <th>Weight</th>
                                     <th>Reciever</th>
                                     <th>Destination</th>
-                                    <th>Status</th>
+                                    <th><span class="dropdown">Staus <br> <span id="sort">Sort by: <button class="dropbtn">Delivered  <i class="fa fa-caret-down"></i></button></span>
+                                        <div class="dropdown-content">
+                                                <a href="#">In transit</a>
+                                                <a href="#">Warehouse</a>
+                                              </div> </span></th>
                                     </tr>
                                     </thead>
                                     <tbody>
