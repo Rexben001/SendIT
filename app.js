@@ -163,8 +163,12 @@ router.post('/v1/users', (req, res) => {
 
 app.use('/api', router);
 
-const PORT = 3000;
+// const PORT = 3000;
+const host = '0.0.0.0';
+const port = process.env.PORT || 3000;
 
-app.listen(PORT);
+app.listen(port, host, function() {
+  console.log("Server started.......");
+});
 
 export default app;
