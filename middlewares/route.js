@@ -12,5 +12,5 @@ router.put('/api/v1/parcels/:id/edit', parcelController.editParcel);
 
 router.get('/api/v1/users', userController.getUsers);
 router.post('/api/v1/users/register', userController.addUser);
-router.get('/api/v1/users/:userId/parcels', userController.userParcel);
+router.get('/api/v1/users/:id/parcels', userController.userParcel);
 export default router;

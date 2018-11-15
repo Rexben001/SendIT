@@ -4,9 +4,9 @@ import router from './route';
 
 const app = express();
 
-// app.use(bodyParser.urlencoded({
-// 	extended: tr,
-// }));
+app.use(bodyParser.urlencoded({
+	extended: false,
+}));
 
 app.use(express.json());
 
@@ -22,3 +22,5 @@ const PORT = 3000;
 app.listen(PORT, () => {
 	console.log('Listening');
 });
+
+export default app;
