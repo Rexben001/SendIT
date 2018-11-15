@@ -10,7 +10,7 @@ class ParcelController {
 
 	static createParcels(req, res) {
 		const parcel = {
-			id: Parcels[Parcels.length - 1].id + 1,
+			id: req.body.id,
 			weight: req.body.weight,
 			username: req.body.username,
 			emailAddress: req.body.emailAddress,
@@ -35,9 +35,11 @@ class ParcelController {
 	}
 
 	static getAParcel(req, res) {
-		const id = parseInt(req.params.id, 10);
-		Parcels.find((parcel) => {
-			if (parcel.id === id) {
+		const { id } = req.params;
+		Parcels.map((parcel) => {
+			/*eslint-disable*/
+			if (parcel.id == id) {
+				/*	eslint-enable	*/
 				return res.status(200).json({
 					message: 'Parcel retrieved successfully',
 					parcels: parcel,

@@ -8,7 +8,7 @@ app.use(bodyParser.urlencoded({
 	extended: false,
 }));
 
-app.use(express.json());
+app.use(bodyParser.json());
 
 router.get('/', (req, res) => res.status(200).json({
 	success: true,
@@ -20,7 +20,7 @@ app.use(router);
 const PORT = 3000;
 
 app.listen(PORT, () => {
-	console.log('Listening');
+	console.log('Listening...');
 });
 
 export default app;
