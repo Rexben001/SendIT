@@ -4,7 +4,7 @@
 	"description": "A courier service project",
 	"main": "app.js",
 	"scripts": {
-		"start": "nodemon app.js --exec babel-node --presets es2015",
+		"start": "nodemon ./middlewares/server.js --exec babel-node --presets es2015",
 		"lint": "eslint",
 		"test": "nyc mocha --reporter-html --reporter-text --timeout 500000 --exit --compilers js:babel-core/register ./test/app.js",
 		"coveralls": "babel-node ./node_modules/istanbul/lib/cli cover node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"

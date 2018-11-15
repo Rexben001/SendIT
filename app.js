@@ -117,7 +117,7 @@ router.put('/v1/parcels/:id/edit', (req, res) => {
 		return parcel.parcels.map((singleParcel) => {
 			if (singleParcel.id === id) {
 				const par = Object.assign({}, singleParcel);
-				par.destination = req.body.destination || singleParcel.destination;
+				par.destination = req.body.destination || par.destination;
 				return res.status(201).send({
 					success: true,
 					message: 'Parcel updated successfully',

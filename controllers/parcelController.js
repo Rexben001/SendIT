@@ -35,7 +35,7 @@ class ParcelController {
 	}
 
 	static getAParcel(req, res) {
-		const { id } = req.body;
+		const id = req.body.id;
 		Parcels.map((parcel) => {
 			if (parcel.id === id) {
 				return res.status(200).json({
@@ -49,11 +49,30 @@ class ParcelController {
 		});
 	}
 
+	static editParcel(req, res) {
+		const { id } = req.body;
+		Parcels.map((parcel) => {
+			if (parcel.id === id) {
+				const singleParcel = Object.assign({}, parcel);
+				singleParcel.destination = req.body.destination || singleParcel.destination;
+				return res.status(201).json({
+					success: true,
+					message: 'Parcel updated successfully',
+					parcels: parcel,
+				});
+			}
+			return res.status(400).json({
+				message: 'parcel not found',
+			});
+		});
+	}
+
 	static cancelParcel(req, res) {
 		const { id } = req.body;
 		Parcels.map((parcel) => {
 			if (parcel.id === id) {
-				parcel.destination = req.body.destination || parcel.destination;
+				const singleParcel = Object.assign({}, parcel);
+				singleParcel.status = req.body.status || singleParcel.status;
 				return res.status(201).json({
 					success: true,
 					message: 'Parcel updated successfully',
@@ -66,3 +85,5 @@ class ParcelController {
 		});
 	}
 }
+
+export default ParcelController;

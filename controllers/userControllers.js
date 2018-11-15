@@ -1,55 +1,49 @@
-import Parcels from '../models/parcels';
+import Users from '../models/users';
 
-class ParcelController{
-    static getParcels(req, res){
-        return res.json({
-            message: 'List of all parcels',
-            parcels: Parcels,
-          });
-    }
-    static createParcels(req, res){
-        const parcel = {
-        id: req.body.id,
-		weight: req.body.weight,
-		username: req.body.username,
-		emailAddress: req.body.emailAddress,
-		pickup: req.body.pickup,
-		phone: req.body.phone,
-		picker: req.body.picker,
-		emailOfPicker: req.body.emailOfPicker,
-		phoneOfPicker: req.body.phoneOfPicker,
-		destination: req.body.destination,
-        status: req.body.status,
-        }
-        if(!req.body){
-            res.status(400).json({
-                message: 'invalid data',
-              });
-        }else{
-            Parcels.push(parcel);
-            res.status(200).json({
-                message: 'created a new parcel',
-                data: parcel,
-              });
-            }
-        }
-        
-        static getAParcel(req, res){
-            const id = req.body.id;
-            Parcels.map((parcel) => {
-                    if (parcel.id === id) {
-                        return res.status(200).json({
-                            message: "Parcel retrieved successfully",
-                            parcels: parcel,
-                        });
-                    }
-                    return res.status(400).json({
-                        message: 'parcel not found',
-                    });
-            });
-    }
-    static cancelParcel(req, res){
+class UserController {
+	static getUsers(req, res) {
+		return res.status(200).json({
+			message: 'List of all parcels',
+			parcels: Users,
+		});
+	}
 
-    }
+	static addUser(req, res) {
+		const user = {
+			id: req.body.id,
+			name: req.body.name,
+			email: req.body.email,
+			country: req.body.country,
+			phone: req.body.phone,
+			pasword: req.body.pasword,
+			parcels: [],
+		};
+		if (!req.body) {
+			res.status(400).json({
+				message: 'invalid data',
+			});
+		}
+		Users.push(user);
+		res.status(200).json({
+			message: 'created a new parcel',
+			data: user,
+		});
+	}
+
+	static userParcel(req, res) {
+		const { id } = req.body;
+		Users.map((user) => {
+			if (user.id === id) {
+				return res.status(200).json({
+					message: 'Parcel retrieved successfully',
+					parcels: user.parcels,
+				});
+			}
+			return res.status(400).json({
+				message: 'user not found',
+			});
+		});
+	}
 }
 
+export default UserController;
