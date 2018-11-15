@@ -661,22 +661,24 @@ input[type=submit]:hover{
     font-size: 50px;
 }
 
-#containerCreate h2, #viewAllParcel h2, #container h2, #details h2, #listing h3{
+#containerCreate h2, #viewAllParcel h2, #details h2, #listing h3{
     text-align: center;
 }
 
 #foot{
-    width: 80%;
+    width: 100%;
     margin: auto;
 }
 #copy{     
     display: inline-block;     
-    width:45%;     
+    width:45%;  
+    margin-left: 50px;   
 } 
 #socials{     
     display: inline-block;     
     width:45%; 
-    text-align: right;    
+    text-align: right;
+    margin-left: 25px;    
 } 
 
 #homepage .card {
@@ -689,3 +691,6 @@ input[type=submit]:hover{
     margin-bottom: 30px;
 }
 
+ footer #correction{
+    margin-bottom: -34px;
+}
