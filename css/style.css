@@ -105,6 +105,7 @@ footer{
     clear: both;
     background: black;
     color: white;
+    margin-top: 80px;
 }
 
 footer p{
@@ -660,7 +661,7 @@ input[type=submit]:hover{
     font-size: 50px;
 }
 
-#containerCreate h2, #viewAllParcel h2, #container h2, #details h2{
+#containerCreate h2, #viewAllParcel h2, #container h2, #details h2, #listing h3{
     text-align: center;
 }
 
