@@ -10,7 +10,7 @@ class ParcelController {
 
 	static createParcels(req, res) {
 		const parcel = {
-			id: req.body.id,
+			id: Parcels[Parcels.length - 1].id + 1,
 			weight: req.body.weight,
 			username: req.body.username,
 			emailAddress: req.body.emailAddress,
@@ -30,13 +30,13 @@ class ParcelController {
 		Parcels.push(parcel);
 		res.status(200).json({
 			message: 'created a new parcel',
-			data: parcel,
+			parcel,
 		});
 	}
 
 	static getAParcel(req, res) {
-		const id = req.body.id;
-		Parcels.map((parcel) => {
+		const id = parseInt(req.params.id, 10);
+		Parcels.find((parcel) => {
 			if (parcel.id === id) {
 				return res.status(200).json({
 					message: 'Parcel retrieved successfully',
@@ -50,8 +50,8 @@ class ParcelController {
 	}
 
 	static editParcel(req, res) {
-		const { id } = req.body;
-		Parcels.map((parcel) => {
+		const id = parseInt(req.params.id, 10);
+		Parcels.find((parcel) => {
 			if (parcel.id === id) {
 				const singleParcel = Object.assign({}, parcel);
 				singleParcel.destination = req.body.destination || singleParcel.destination;
@@ -68,8 +68,8 @@ class ParcelController {
 	}
 
 	static cancelParcel(req, res) {
-		const { id } = req.body;
-		Parcels.map((parcel) => {
+		const id = parseInt(req.params.id, 10);
+		Parcels.find((parcel) => {
 			if (parcel.id === id) {
 				const singleParcel = Object.assign({}, parcel);
 				singleParcel.status = req.body.status || singleParcel.status;

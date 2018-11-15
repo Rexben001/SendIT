@@ -1,6 +1,6 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import db from './db/db';
+import db from './models/users';
 
 const app = express();
 const router = express.Router();
@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 
 //	Get all the delivery order parcels
 router.get('/v1/parcels', (req, res) => {
-	db.users.map((parcel) => {
+	db.map((parcel) => {
 		return res.status(200).send({
 			success: true,
 			message: 'user retrieved successfully',
@@ -45,7 +45,7 @@ router.post('/v1/parcels', (req, res) => {
 		status: req.body.status,
 
 	};
-	db.users.map((singleParcels) => {
+	db.map((singleParcels) => {
 		return singleParcels.parcels.push(parcel);
 	});
 	return res.status(201).send({
@@ -59,8 +59,8 @@ router.post('/v1/parcels', (req, res) => {
 //	Get a particular delivery order parcel
 router.get('/v1/parcels/:id', (req, res) => {
 	const id = parseInt(req.params.id, 10);
-	db.users.map((parcel) => {
-		return parcel.parcels.map((singleParcel) => {
+	db.map((parcel) => {
+		parcel.parcels.map((singleParcel) => {
 			if (singleParcel.id === id) {
 				return res.status(200).send({
 					success: true,
@@ -80,7 +80,7 @@ router.get('/v1/parcels/:id', (req, res) => {
 router.put('/v1/parcels/:id/cancel', (req, res) => {
 	const id = parseInt(req.params.id, 10);
 
-	db.users.map((parcel) => {
+	db.map((parcel) => {
 		return parcel.parcels.map((singleParcel, index) => {
 			if (singleParcel.id === id) {
 				parcel.parcels.splice(index, 1);
@@ -99,7 +99,7 @@ router.put('/v1/parcels/:id/cancel', (req, res) => {
 
 router.get('/v1/users/:id/parcels', (req, res) => {
 	const id = parseInt(req.params.id, 10);
-	db.users.map((singleParcel) => {
+	db.map((singleParcel) => {
 		if (singleParcel.id === id) {
 			return res.status(200).send({
 				success: true,
@@ -113,7 +113,7 @@ router.get('/v1/users/:id/parcels', (req, res) => {
 router.put('/v1/parcels/:id/edit', (req, res) => {
 	const id = parseInt(req.params.id, 10);
 
-	db.users.map((parcel) => {
+	db.map((parcel) => {
 		return parcel.parcels.map((singleParcel) => {
 			if (singleParcel.id === id) {
 				const par = Object.assign({}, singleParcel);

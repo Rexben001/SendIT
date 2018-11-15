@@ -31,7 +31,7 @@ class UserController {
 	}
 
 	static userParcel(req, res) {
-		const { id } = req.body;
+		const id = parseInt(req.params.id, 10);
 		Users.map((user) => {
 			if (user.id === id) {
 				return res.status(200).json({

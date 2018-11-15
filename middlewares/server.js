@@ -4,11 +4,11 @@ import router from './route';
 
 const app = express();
 
-app.use(bodyParser.urlencoded({
-	extended: false,
-}));
+// app.use(bodyParser.urlencoded({
+// 	extended: tr,
+// }));
 
-app.use(bodyParser.json());
+app.use(express.json());
 
 router.get('/', (req, res) => res.status(200).json({
 	success: true,
