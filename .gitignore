@@ -1,11 +1,5 @@
-<<<<<<< HEAD:node_modules/glob-parent/.npmignore
 node_modules
-.DS_Store
-npm-debug.log
-coverage
-=======
-/node_modules
 npm-debug.log
 .DS_Store
 /.env
->>>>>>> 85f0fc14ca5843460b7aa6220616a5b55c975dea:.gitignore
+.nyc_output
