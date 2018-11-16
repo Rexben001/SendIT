@@ -3,12 +3,11 @@ import bodyParser from 'body-parser';
 import router from './route';
 
 const app = express();
-
+app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
 	extended: false,
 }));
 
-app.use(bodyParser.json());
 
 router.get('/', (req, res) => res.status(200).json({
 	success: true,

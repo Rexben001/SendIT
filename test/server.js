@@ -1,6 +1,6 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
-import app from '../middlewares/server';
+import app from '../routes/server';
 
 chai.should();
 

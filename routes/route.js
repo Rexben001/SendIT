@@ -1,12 +1,13 @@
 import express from 'express';
 import parcelController from '../controllers/parcelController';
 import userController from '../controllers/userControllers';
+import validator from '../middlewares/validation';
 
 const router = express.Router();
 
 router.get('/api/v1/parcels', parcelController.getParcels);
 router.get('/api/v1/parcels/:id', parcelController.getAParcel);
-router.post('/api/v1/parcels', parcelController.createParcels);
+router.post('/api/v1/parcels',validator.validator, parcelController.createParcels);
 router.put('/api/v1/parcels/:id/cancel', parcelController.cancelParcel);
 router.put('/api/v1/parcels/:id/edit', parcelController.editParcel);
 

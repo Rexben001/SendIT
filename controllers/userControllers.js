@@ -30,28 +30,29 @@ class UserController {
 	 
 		validator.check().then(function (matched) {
 			if (!matched) {
-				res.status(422).send(validator.errors);
+				return res.status(422).send(validator.errors);
 			}
 			Users.push(user);
-		res.status(200).json({
-			message: 'created a new parcel',
-			data: user,
+			return res.status(200).json({
+				message: 'created a new parcel',
+				data: user,
 		});
 		});
 	}
 
 	static userParcel(req, res) {
-		const id = parseInt(req.params.id, 10);
-		Users.map((user) => {
-			if (user.id === id) {
-				return res.status(200).json({
-					message: 'Parcel retrieved successfully',
-					parcels: user.parcels,
-				});
-			}
-			return res.status(400).json({
+		const id = Number(req.params.id);
+		const user = Users.find(u => u.id === id);
+
+		if (!user) {
+			return res.status(404).json({
 				message: 'user not found',
 			});
+		}
+
+		return res.status(200).json({
+			message: 'Parcel retrieved successfully',
+			parcels: user.parcels,
 		});
 	}
 }
