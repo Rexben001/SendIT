@@ -1,3 +1,41 @@
+<<<<<<< HEAD
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "env": {
+        "browser": true,
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2016
+    },
+    "rules": {
+        "indent": [
+            "2",
+						"tab",
+						{"SwitchCase": 1}
+		],
+		"no-tabs": 0,
+        "linebreak-style": [
+            "error",
+            "windows"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ]
+    }
+}
+=======
 {
     "parser": "babel-eslint",
     "extends": "airbnb",
@@ -32,3 +70,4 @@
         "arrow-body-style": 0
     }
 }
+>>>>>>> 85f0fc14ca5843460b7aa6220616a5b55c975dea

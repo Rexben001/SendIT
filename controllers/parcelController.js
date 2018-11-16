@@ -1,3 +1,4 @@
+import validate from 'node-input-validator'
 import Parcels from '../models/parcels';
 
 class ParcelController {
@@ -22,18 +23,30 @@ class ParcelController {
 			destination: req.body.destination,
 			status: req.body.status,
 		};
-		if (!req.body) {
-			res.status(400).json({
-				message: 'invalid data',
+		let validator = new validate( req.body, {
+			id: 'required|integer',
+			weight: 'required|integer',
+			username: 'required|minLength:3',
+			emailAddress:'required|email',
+			pickup: 'required|string',
+			phone: 'required|numeric',
+			picker: 'required|string',
+			emailOfPicker: 'required|email',
+			phoneOfPicker: 'required|numeric',
+			destination: 'required|string',
 			});
-		}
-		Parcels.push(parcel);
+	 
+		validator.check().then(function (matched) {
+			if (!matched) {
+				res.status(422).json(validator.errors);
+			}
+			Parcels.push(parcel);
 		res.status(200).json({
 			message: 'created a new parcel',
-			parcel,
+			data: parcel,
+		});
 		});
 	}
-
 	static getAParcel(req, res) {
 		const { id } = req.params;
 		Parcels.map((parcel) => {
@@ -57,6 +70,7 @@ class ParcelController {
 			if (parcel.id === id) {
 				const singleParcel = Object.assign({}, parcel);
 				singleParcel.destination = req.body.destination || singleParcel.destination;
+				
 				return res.status(201).json({
 					success: true,
 					message: 'Parcel updated successfully',

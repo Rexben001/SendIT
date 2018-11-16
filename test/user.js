@@ -9,12 +9,12 @@ chai.use(chaiHttp);
 describe('POST /api/v1/users/register', () => {
 	it('it should add new user', ((done) => {
 		const user = {
-			id: 1,
+			id: 2,
 			name: 'Ben',
 			email: 'rexben.rb@gmail.com',
 			country: 'Abia',
 			phone: '2345678',
-			password: 'erft9876',
+			pasword: 'erft9876',
 		};
 		chai.request(app)
 			.post('/api/v1/users/register')

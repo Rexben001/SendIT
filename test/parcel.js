@@ -8,19 +8,19 @@ chai.use(chaiHttp);
 
 describe('API route testing', () => {
 	describe('POST /v1/parcels', () => {
-		it('it should get all parcels', ((done) => {
+		it('it should create a parcel', ((done) => {
 			const parcel = {
-				id: 1,
-				weight: '232.6',
-				username: 'seyi',
+				id: 2,
+				weight: '34',
+				username: 'Ben',
 				emailAddress: 'rexben.rb@gmail.com',
-				pickup: '10, Igbe, Lagos',
-				phone: '345678',
-				picker: 'dfgh',
-				emailOfPicker: 'ertyui',
-				phoneOfPicker: '345678',
-				destination: 'ghjktr',
-				status: 'delivered',
+				pickup: 'Igbe',
+				phone: '0987654',
+				picker: 'James',
+				emailOfPicker: 'rex@gmail.com',
+				phoneOfPicker: '2345678',
+				destination: 'Anthony',
+				status: 'Delivered',
 			};
 			chai.request(app)
 				.post('/api/v1/parcels')
@@ -28,8 +28,6 @@ describe('API route testing', () => {
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('Object');
-					res.body.parcel.should.have.property('picker').eql('dfgh');
-					res.body.parcel.id.should.be.a('Number');
 					done(err);
 				});
 		}));
@@ -38,7 +36,7 @@ describe('API route testing', () => {
 	describe('GET /v1/parcels', () => {
 		it('it should get all parcels', ((done) => {
 			chai.request(app)
-				.get('/api/v1/parcels')
+				.get('/api/v1/parcels/')
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('Object');

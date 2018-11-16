@@ -1,3 +1,4 @@
+import validate from 'node-input-validator';
 import Users from '../models/users';
 
 class UserController {
@@ -9,6 +10,7 @@ class UserController {
 	}
 
 	static addUser(req, res) {
+		
 		const user = {
 			id: req.body.id,
 			name: req.body.name,
@@ -18,15 +20,23 @@ class UserController {
 			pasword: req.body.pasword,
 			parcels: [],
 		};
-		if (!req.body) {
-			res.status(400).json({
-				message: 'invalid data',
+		let validator = new validate( req.body, {
+			id: 'required|integer',
+			name: 'required|minLength:3',
+			email:'required|email',
+			pasword: 'required',
+			phone: 'required|numeric'
 			});
-		}
-		Users.push(user);
+	 
+		validator.check().then(function (matched) {
+			if (!matched) {
+				res.status(422).send(validator.errors);
+			}
+			Users.push(user);
 		res.status(200).json({
 			message: 'created a new parcel',
 			data: user,
+		});
 		});
 	}
 
