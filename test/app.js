@@ -44,8 +44,6 @@ describe('API route testing', () => {
 
 	});
 
-
-
 	describe('GET /v1/parcels', () => {
 
 		it('it should get all parcels', ((done) => {
@@ -61,7 +59,6 @@ describe('API route testing', () => {
 		}));
 
 	});
-
 
 	describe('GET /v1/parcels/:id', () => {
 
@@ -91,6 +88,7 @@ describe('API route testing', () => {
 
 	});
 
+
 	describe('GET /v1/users/:id/parcels', () => {
 
 		it('it should get parcels from a user by its given id', ((done) => {
@@ -106,7 +104,26 @@ describe('API route testing', () => {
 		}));
 	});
 
-	describe('PUT /v1/parcels/:id', () => {
+	describe('PUT /v1/parcels/:id/edit', () => {
+
+		it('it should produce parcel updated successfully', ((done) => {
+			let parcelDestination = {
+				"destination": 'Igbe road'
+			}
+			chai.request(app)
+				.put("/v1/parcels/2/edit")
+				.send(parcelDestination)
+				.end((err, res) => {
+					res.should.have.status(201);
+					res.body.success.should.equal(true);
+					res.body.message.should.equal('Parcel updated successfully');
+					res.body.parcel.destination.should.be.equal('Igbe road');
+					done();
+				});
+		}));
+	});
+
+	describe('PUT /v1/parcels/:id/cancel', () => {
 
 		it('it should produce an error, parcel not found', ((done) => {
 			chai.request(app)
