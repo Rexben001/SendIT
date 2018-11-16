@@ -5,15 +5,19 @@ node_js:
 cache:
   directories:
     - "node_modules"
- after_script:
-    - npm run coveralls
+  env:
+    global:
+    - CC_TEST_REPORTER_ID=f68cf4cc089210f61efa330a4d62926bd057285ed0a8d95cac91061091217f8f
 
 before_script:
   - npm install
-  - npm install coveralls
+  - npm install -g coveralls
+  - npm install -g nyc
+  - curl -L https://codeclimate.com/downloads/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - ./cc-test-reporter before-build
 
 script: 
   - npm run test
 after_success:
   - npm run coveralls
-  -  after-build --exit-code 
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

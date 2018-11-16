@@ -7,7 +7,7 @@
 		"start": "nodemon ./middlewares/server.js --exec babel-node --presets es2015",
 		"lint": "eslint",
 		"test": "nyc mocha --reporter-html --reporter-text --timeout 500000 --exit --compilers js:babel-core/register ./test/*.js",
-		"coveralls": "npm run test && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage"
+		"coveralls": "nyc report --reporter | coveralls"
 	},
 	"repository": {
 		"type": "git",
