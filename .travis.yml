@@ -1,21 +1,9 @@
-<<<<<<< HEAD
 language: node_js
 node_js: 
   - "stable"
 cache:
   directories:
     - "node_modules"
-after_script: NODE_ENV=test istanbul cover ./node_modules/mocha/bin/_mocha --report lcovonly -- -R spec && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
-=======
-language: node_js
-
-node_js: 
-  - "8.9.4"
-cache:
-  directories:
-    - "node_modules"
- after_script:
-    - npm run coveralls
 
 before_script:
   - npm install
@@ -25,5 +13,4 @@ script:
   - npm run test
 after_success:
   - npm run coveralls
-
->>>>>>> 85f0fc14ca5843460b7aa6220616a5b55c975dea
+  -  after-build --exit-code 
