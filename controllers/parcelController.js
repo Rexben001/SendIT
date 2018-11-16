@@ -23,30 +23,32 @@ class ParcelController {
 			destination: req.body.destination,
 			status: req.body.status,
 		};
-		// let validator = new validate( req.body, {
-		// 	id: 'required|integer',
-		// 	weight: 'required|integer',
-		// 	username: 'required|minLength:3',
-		// 	emailAddress:'required|email',
-		// 	pickup: 'required|string',
-		// 	phone: 'required|numeric',
-		// 	picker: 'required|string',
-		// 	emailOfPicker: 'required|email',
-		// 	phoneOfPicker: 'required|numeric',
-		// 	destination: 'required|string',
-		// 	});
+		let validator = new validate( req.body, {
+			id: 'required|integer',
+			weight: 'required|integer',
+			username: 'required|minLength:3',
+			emailAddress:'required|email',
+			pickup: 'required|string',
+			phone: 'required|numeric',
+			picker: 'required|string',
+			emailOfPicker: 'required|email',
+			phoneOfPicker: 'required|numeric',
+			destination: 'required|string',
+			});
 	 
-		// validator.check().then(function (matched) {
-		// 	if (!matched) {
-		// 		return res.status(422).json(validator.errors);
-		// 	}
+		validator.check().then(function (matched) {
+			if (!matched) {
+				return res.status(422).json(validator.errors);
+			}
 			Parcels.push(parcel);
 			return res.status(200).json({
 				message: 'created a new parcel',
 				data: parcel,
 			});
 
-	}
+	});
+}
+
 	static getAParcel(req, res) {
 		const id = Number(req.params.id);
 		const parcel = Parcels.find(p => p.id == id);
