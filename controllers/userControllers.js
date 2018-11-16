@@ -20,23 +20,10 @@ class UserController {
 			pasword: req.body.pasword,
 			parcels: [],
 		};
-		let validator = new validate( req.body, {
-			id: 'required|integer',
-			name: 'required|minLength:3',
-			email:'required|email',
-			pasword: 'required',
-			phone: 'required|numeric'
-			});
-	 
-		validator.check().then(function (matched) {
-			if (!matched) {
-				return res.status(422).send(validator.errors);
-			}
 			Users.push(user);
 			return res.status(200).json({
 				message: 'created a new parcel',
 				data: user,
-		});
 		});
 	}
 
