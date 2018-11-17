@@ -1,4 +1,3 @@
-import validate from 'node-input-validator';
 import Users from '../models/users';
 
 class UserController {
@@ -20,6 +19,7 @@ class UserController {
 			pasword: req.body.pasword,
 			parcels: [],
 		};
+		
 			Users.push(user);
 			return res.status(200).json({
 				message: 'created a new parcel',

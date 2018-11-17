@@ -12,5 +12,7 @@ const parcels = [
 		destination: 'Anthony',
 		status: 'Delivered',
 	},
+
 ];
+
 export default parcels;

@@ -56,11 +56,11 @@ describe('API route testing', () => {
 				});
 		}));
 
-		it('it should return error 400', ((done) => {
+		it('it should return error 404', ((done) => {
 			chai.request(app)
 				.get(`/api/v1/parcels/${3}`)
 				.end((err, res) => {
-					res.should.have.status(400);
+					res.should.have.status(404);
 					res.body.message.should.equal('parcel not found');
 					done(err);
 				});
