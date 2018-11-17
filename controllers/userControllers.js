@@ -1,4 +1,3 @@
-import validate from 'node-input-validator';
 import Users from '../models/users';
 
 class UserController {
@@ -20,38 +19,27 @@ class UserController {
 			pasword: req.body.pasword,
 			parcels: [],
 		};
-		let validator = new validate( req.body, {
-			id: 'required|integer',
-			name: 'required|minLength:3',
-			email:'required|email',
-			pasword: 'required',
-			phone: 'required|numeric'
-			});
-	 
-		validator.check().then(function (matched) {
-			if (!matched) {
-				res.status(422).send(validator.errors);
-			}
+		
 			Users.push(user);
-		res.status(200).json({
-			message: 'created a new parcel',
-			data: user,
-		});
+			return res.status(200).json({
+				message: 'created a new parcel',
+				data: user,
 		});
 	}
 
 	static userParcel(req, res) {
-		const id = parseInt(req.params.id, 10);
-		Users.map((user) => {
-			if (user.id === id) {
-				return res.status(200).json({
-					message: 'Parcel retrieved successfully',
-					parcels: user.parcels,
-				});
-			}
-			return res.status(400).json({
+		const id = Number(req.params.id);
+		const user = Users.find(u => u.id === id);
+
+		if (!user) {
+			return res.status(404).json({
 				message: 'user not found',
 			});
+		}
+
+		return res.status(200).json({
+			message: 'Parcel retrieved successfully',
+			parcels: user.parcels,
 		});
 	}
 }
