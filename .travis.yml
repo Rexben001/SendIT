@@ -12,6 +12,6 @@ script: npm run test
 after_script:
   - npm run coverage
   - npm install -g codeclimate-test-reporter
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build -d --exit-code $TRAVIS_TEST_RESULT
 notifications:
   email: false
