@@ -10,7 +10,8 @@
 # SendIT
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
-#Some of the features of the App
+#  Some of the features of the App
+
 1. Users can create an account and log in.
 2. Users can create a parcel delivery order.
 3. Users can change the destination of a parcel delivery order.
@@ -18,4 +19,32 @@ SendIT is a courier service that helps users deliver parcels to different destin
 5. Users can see the details of a delivery order.
 6. Admin can change the status and present location of a parcel delivery order.
 
-#Andela Developer Challenge
+
+# Technologies used includes
+Node 
+Express
+Mocha
+Nyc
+Travis
+Coveralls
+Babel
+
+# How to install and test SendIT
+To install all the dependencies
+# npm install
+To test the App
+# npm start
+
+# Details on API endpoints
+GET /parcels              --- Fetch all parcel delivery orders
+
+GET /parcels/<parcelId>   ---  Fetch a specific parcel delivery order
+  
+GET /users/<userId>/parcels  --- Fetch all parcel delivery orders by a specific user
+  
+PUT /parcels/<parcelId>/cancel ---  Cancel the specific parcel delivery order
+  
+POST /parcels                  ---   Create a parcel delivery order
+
+
+
