@@ -1,9 +1,4 @@
-/node_modules
-npm-debug.log
-.DS_Store
-/.env
-coverage
+node_modules
 .nyc_output
+coverage
 .vscode
-
-
