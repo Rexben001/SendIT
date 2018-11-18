@@ -5,7 +5,7 @@
 	"main": "./routes/server.js",
 	"scripts": {
 		"start": "nodemon ./routes/server.js --exec babel-node --presets es2015",
-		"test": "nyc mocha --exit --compilers js:babel-core/register ./test/*.js",
+		"test": "nyc mocha --exit ./test/*.js",
 		"coverage": "nyc report --reporter=text-lcov | coveralls"
 	},
 	"repository": {
@@ -17,6 +17,19 @@
 	"bugs": {
 		"url": "https://github.com/Rexben001/SendIT/issues"
 	},
+	"nyc": {
+    "require": [
+      "babel-register",
+      "babel-polyfill"
+    ],
+    "reporter": [
+      "lcov",
+      "html",
+      "text"
+    ],
+    "sourceMap": false,
+    "instrument": false
+  },
 	"homepage": "https://github.com/Rexben001/SendIT#readme",
 	"devDependencies": {
 		"babel-cli": "6.26.0",
