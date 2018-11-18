@@ -21,7 +21,7 @@ class ParcelController {
 				res.status(200).send({
 				status: 'Successful',
 				message: 'parcels Information retrieved',
-				students: result.rows,
+				parcels: result.rows,
 				});
 			  }
 			});
@@ -64,7 +64,7 @@ class ParcelController {
     static getAParcel(req, res) {
 		const id = req.params.parcel_id;
         pool.connect((err, client, done) => {
-            const query = `SELECT * FROM parcels where id=${id}`;
+            const query = `SELECT * FROM parcels where parcel_id=${id}`;
             client.query(query, (error, result) => {
               done();
               if (error) {
@@ -77,11 +77,11 @@ class ParcelController {
       });
 	}
 
-	static editParcel(req, res) {
-		const id = req.params.parcel_id;
+	static changeDestination(req, res) {
+		const id = req.params.id;
 		const data = req.body.destination;
 		pool.connect((err, client, done) => {
-			const query = ('UPDATE parcels SET destination=$1 WHERE id=$2');
+			const query = ('UPDATE parcels SET destination=$1 WHERE parcel_id=$2');
 			const value = [data, id];
 		client.query(query, value, (error, result) => {
 			done();
@@ -97,11 +97,11 @@ class ParcelController {
 	});
 	}
 
-	static cancelParcel(req, res) {
+	static changeStatus(req, res) {
 		const id = req.params.parcel_id;
 		const data = req.body.status;
 		pool.connect((err, client, done) => {
-			const query = ('UPDATE parcels SET status=$1 WHERE id=$2');
+			const query = ('UPDATE parcels SET status=$1 WHERE parcel_id=$2');
 			const value = [data, id];
 		client.query(query, value, (error, result) => {
 			done();
@@ -114,8 +114,42 @@ class ParcelController {
 			  result: result,
 			});
 		  });
-	});	}
-
+	});	
+}
+static cancelParcel(req, res) {
+	const id = req.params.parcel_id;
+	pool.connect((err, client, done) => {
+		const query = (`DELETE parcels WHERE parcel_id=${id}`);
+	client.query(query, (error, result) => {
+		done();
+		if (error) {
+			console.log(error);
+		  return res.status(400).json({error});
+		}
+	   return res.status(202).send({
+		  status: 'Successful',
+		  result: result,
+		});
+	  });
+});	
+}
+static presentLocation(req, res) {
+	const id = req.params.parcel_id;
+	pool.connect((err, client, done) => {
+		const query = (`UPDATE parcels WHERE parcel_id=${id}`);
+	client.query(query, (error, result) => {
+		done();
+		if (error) {
+			console.log(error);
+		  return res.status(400).json({error});
+		}
+	   return res.status(202).send({
+		  status: 'Successful',
+		  result: result,
+		});
+	  });
+});	
+}
 }
 
 export default ParcelController;

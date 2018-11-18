@@ -29,6 +29,7 @@ class UserController {
 		  });
 	}
 
+
 	static addUser(req, res) {
 		
 		const user = {
@@ -54,6 +55,28 @@ class UserController {
 			});
 		  });
 	}
+
+	static loginUser(req, res) {
+		const name = req.body.name;
+		const password = req.body.password;
+        pool.connect((err, client, done) => {
+			const query = 'SELECT * FROM users where name=$1 password=$2';
+			const value = [name, password];
+            client.query(query, value, (error, result) => {
+              done();
+              if (error) {
+                return res.status(400).json({
+					error,
+				result: "Enter the correct details"
+			});
+              } 
+              return  res.json({status: 'success',
+			result: "Welcome to Send IT"
+		});
+          });
+      });
+	}
+
 
 	static userParcel(req, res) {
 		const id = Number(req.params.id);
