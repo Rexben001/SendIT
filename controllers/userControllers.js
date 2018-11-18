@@ -16,7 +16,7 @@ class UserController {
 			email: req.body.email,
 			country: req.body.country,
 			phone: req.body.phone,
-			pasword: req.body.pasword,
+			password: req.body.password,
 			parcels: [],
 		};
 		

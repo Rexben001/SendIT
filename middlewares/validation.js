@@ -9,7 +9,7 @@ static userValidator(req, res, next){
         id: 'required|integer',
         name: 'required|minLength:3',
         email:'required|email',
-        pasword: 'required',
+        password: 'required',
         phone: 'required|numeric',
         });
  

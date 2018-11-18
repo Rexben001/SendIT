@@ -14,7 +14,7 @@ describe('POST /api/v1/users/register', () => {
 			email: 'rexben.rb@gmail.com',
 			country: 'Abia',
 			phone: '2345678',
-			pasword: 'erft9876',
+			password: 'erft9876',
 		};
 		chai.request(app)
 			.post('/api/v1/users/register')
