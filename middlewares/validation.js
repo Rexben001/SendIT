@@ -6,7 +6,6 @@ class Validation{
 static userValidator(req, res, next){
     
     let validator = new validate( req.body, {
-        id: 'required|integer',
         name: 'required|minLength:3',
         email:'required|email',
         password: 'required',
@@ -25,8 +24,7 @@ static userValidator(req, res, next){
 static parcelValidator(req, res, next){
     
     let validator = new validate( req.body, {
-        id: 'required|integer',
-		weight: 'required|integer',
+		weight: 'required|numeric',
 		username: 'required|minLength:3',
 		emailAddress: 'required|email',
 		pickup: 'required',

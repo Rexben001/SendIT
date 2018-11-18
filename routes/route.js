@@ -8,10 +8,10 @@ import validator from '../middlewares/validation';
 const router = express.Router();
 
 router.get('/api/v1/parcels', parcelController.getParcels);
-router.get('/api/v1/parcels/:id', parcelController.getAParcel);
+router.get('/api/v1/parcels/:parcel_id', parcelController.getAParcel);
 router.post('/api/v1/parcels', validator.parcelValidator, parcelController.addParcelss);
-router.put('/api/v1/parcels/:id/cancel', parcelController.cancelParcel);
-router.put('/api/v1/parcels/:id/edit', parcelController.editParcel);
+router.put('/api/v1/parcels/:parcel_id/cancel', parcelController.cancelParcel);
+router.put('/api/v1/parcels/:parcel_id/edit', parcelController.editParcel);
 
 
 router.get('/api/v1/users', userController.getUsers);

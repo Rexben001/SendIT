@@ -1,65 +1,3 @@
-// const pg =  require('pg');
-
-
-// const pool = new pg.Pool({
-// user: 'postgres',
-// host: '127.0.0.1',
-// database: 'sendit_db',
-// password: '12345',
-// port: '5432'
-// });
-
-// pool.query("CREATE TABLE users(id SERIAL PRIMARY KEY, firstName VARCHAR(40) NOT NULL, lastName VARCHAR(40) NOT NULL)", (err, res) => {
-// console.log(err, res);
-// });
-
-// pool.query("INSERT INTO users(id, firstName, lastName) VALUES(3, 'Ken', 'Tim')", (err, res) => {
-//     console.log(err, res);
-//     });
-
-// pool.query("SELECT * FROM users", (err, res) => {
-//     console.log(err, res);
-//     });
-
-// pool.query("UPDATE users SET firstName='Johnny', lastName='Comme' WHERE id=3", (err, res) => {
-//     console.log(err, res);
-//     // pool.end();
-// });
-
-// pool.query("DELETE FROM users WHERE id=3", (err, res) => {
-//     console.log(err, res);
-//     pool.end();
-// });
-//psql -U postgres -h127.0.0.1 sendit_db
-
-
-
-
-
-
-
-// var express = require('express');
-// var router = express.Router();
-
-// var db = require('./queries.js');
-
-// router.get('/api/v1/users', db.getUsers);
-// router.post('/api/v1/users/register', db.addUsers);
-// // router.get('/api/v1/users/:id/parcels', db.getUserParcels);
-// router.get('/api/v1/users/:id', db.deleteUser);
-// router.get('/api/v1/users/:id', db.getAUser);
-// router.post('/api/v1/meee', db.testing);
-
-
-// module.exports = router;
-
-
-
-
-
-
-
-
 
 const express = require('express');
    const app = express();
@@ -152,7 +90,7 @@ app.put('/student/:id', (req, res) => {
     pool.connect((err, client, done) => {
         const query = ('UPDATE students SET student_name=$1 WHERE id=$2');
         const value = [data, id];
-    client.query(query,value, (error, result) => {
+    client.query(query, value, (error, result) => {
         done();
         if (error) {
             console.log(error);
@@ -165,12 +103,6 @@ app.put('/student/:id', (req, res) => {
       });
 });
 });
-
-
-
-
-
-
 
    app.listen(port, () => {
       console.log(`We are live at 127.0.0.1:${port}`);

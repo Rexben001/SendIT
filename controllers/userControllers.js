@@ -1,30 +1,58 @@
-import Users from '../models/users';
+import Users from '../models/dummyData/users';
+import value from '../models/userdb';
+
+const pool = value.pool;
+
 
 class UserController {
 	static getUsers(req, res) {
-		return res.status(200).json({
-			message: 'List of all parcels',
-			parcels: Users,
-		});
+		pool.connect((err, client, done) => {
+			const query = 'SELECT * FROM users';
+			client.query(query, (error, result) => {
+			  done();
+			  if (error) {
+				res.status(400).json({error})
+			  } 
+			  if(result.rows < '1') {
+				res.status(404).send({
+				status: 'Failed',
+				message: 'No users information found',
+				});
+			  } else {
+				res.status(200).send({
+				status: 'Successful',
+				message: 'Users Information retrieved',
+				users: result.rows,
+				});
+			  }
+			});
+		  });
 	}
 
 	static addUser(req, res) {
 		
 		const user = {
-			id: req.body.id,
 			name: req.body.name,
 			email: req.body.email,
 			country: req.body.country,
 			phone: req.body.phone,
 			password: req.body.password,
-			parcels: [],
 		};
+		  pool.connect((err, client, done) => {
+			const query = 'INSERT INTO users(name, email, country, phone, password) VALUES($1,$2,$3,$4,$5) RETURNING *';
+			const values = [user.name, user.email, user.country, user.phone, user.password];
 		
-			Users.push(user);
-			return res.status(200).json({
-				message: 'created a new parcel',
-				data: user,
-		});
+			client.query(query, values, (error, result) => {
+			  done();
+			  if (error) {
+				return res.status(400).json({error});
+			  }
+			 return res.status(202).send({
+				status: 'Successful',
+				result: result.rows,
+			  });
+			});
+		  });
 	}
 
 	static userParcel(req, res) {

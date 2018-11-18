@@ -40,9 +40,8 @@ function getAUser(req, res, next){
 }
 
 function addUsers(req, res, next){
-    db.none('INSERT INTO testing(id, name, class) VALUES(${id}, ${name}, ${class})' , req.body)
-
-    // db.none('insert into users(name, email, phone, country, password) values($1, $2, $3, $4, $5)', ['456', '56789', 23456, '34567u', '45yuj'])
+    const data = req.body;
+    db.none('insert into users(name, email, phone, country, password) values($1, $2, $3, $4, $5) RETURNING *', [data.name, data.email, data.phone, data.country, data.password])
     .then(function (){
         res.status(200)
         .json({

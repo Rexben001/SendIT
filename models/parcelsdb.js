@@ -18,16 +18,24 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-	const userTable = `CREATE TABLE IF NOT EXISTS
-		users(
-		  id SERIAL PRIMARY KEY,
-		  name VARCHAR(128) NOT NULL,
-		  phone INT NOT NULL,
-		  email VARCHAR(128) NOT NULL,
-		  country VARCHAR(128) NOT NULL,
-		  password VARCHAR(128) NOT NULL
+	const parcelTable = `CREATE TABLE IF NOT EXISTS
+		parcels(
+		  parcel_id SERIAL,
+          weight VARCHAR(128) NOT NULL,
+          username VARCHAR(128) NOT NULL,
+		  emailAddress VARCHAR(128) NOT NULL,
+          pickup VARCHAR(128) NOT NULL,
+          phone INT NOT NULL,
+          picker  VARCHAR(128) NOT NULL,
+          emailOfPicker VARCHAR(128) NOT NULL,
+          phoneOfPicker VARCHAR(128) NOT NULL,
+          destination VARCHAR(128) NOT NULL,
+          status VARCHAR(128) NOT NULL,
+          constraint fk_parcels_users
+            foreign key (parcel_id)
+            REFERENCES users (user_id)
 		)`;
-	pool.query(userTable)
+	pool.query(parcelTable)
 	  .then((res) => {
 		console.log(res);
 		pool.end();
