@@ -29,9 +29,8 @@ const createTables = () => {
           picker  VARCHAR(128) NOT NULL,
           emailOfPicker VARCHAR(128) NOT NULL,
           phoneOfPicker VARCHAR(128) NOT NULL,
-          destination VARCHAR(128) NOT NULL,
-          user_id SERIAL references users(user_id)
-		)`;
+          destination VARCHAR(128) NOT NULL
+        		)`;
 	pool.query(parcelTable)
 	  .then((res) => {
 		console.log(res);
