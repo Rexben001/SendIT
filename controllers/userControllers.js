@@ -60,7 +60,7 @@ class UserController {
 		const name = req.body.name;
 		const password = req.body.password;
         pool.connect((err, client, done) => {
-			const query = 'SELECT * FROM users where name=$1 password=$2';
+			const query = 'SELECT * FROM users where name=$1 and password=$2';
 			const value = [name, password];
             client.query(query, value, (error, result) => {
               done();

@@ -19,6 +19,6 @@ router.put('/api/v1/parcels/:parcel_id/presentLocation', parcelController.presen
 router.get('/api/v1/users', userController.getUsers);
 router.post('/api/v1/auth/signup', validator.userValidator, userController.addUser);
 router.get('/api/v1/users/:user_id/parcels', userController.userParcel);
-router.post('/api/v1/users/login', userController.loginUser);
+router.get('/api/v1/users/login', userController.loginUser);
 
 export default router;

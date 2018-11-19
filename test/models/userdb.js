@@ -2,7 +2,7 @@ const pg = require('pg');
 
 const config = {
   user: 'postgres', //this is the db user credential
-  database: 'sendit_db',
+  database: 'sendit_db_test',
   password: null,
   port: 5432,
   max: 10, // max number of clients in the pool
@@ -18,21 +18,16 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-	const parcelTable = `CREATE TABLE IF NOT EXISTS
-		parcels(
-		  parcel_id SERIAL PRIMARY KEY,
-          weight VARCHAR(128) NOT NULL,
-          username VARCHAR(128) NOT NULL,
-		      emailAddress VARCHAR(128) NOT NULL,
-          pickup VARCHAR(128) NOT NULL,
-          phone VARCHAR(128) NOT NULL,
-          picker  VARCHAR(128) NOT NULL,
-          emailOfPicker VARCHAR(128) NOT NULL,
-          phoneOfPicker VARCHAR(128) NOT NULL,
-          destination VARCHAR(128) NOT NULL,
-          user_id INTEGER REFERENCES users (user_id)
-        		)`;
-	pool.query(parcelTable)
+	const userTable = `CREATE TABLE IF NOT EXISTS
+		users(
+		  user_id SERIAL PRIMARY KEY,
+		  name VARCHAR(128) NOT NULL,
+		  phone INT NOT NULL,
+		  email VARCHAR(128) NOT NULL,
+		  country VARCHAR(128) NOT NULL,
+		  password VARCHAR(128) NOT NULL
+		)`;
+	pool.query(userTable)
 	  .then((res) => {
 		console.log(res);
 		pool.end();
