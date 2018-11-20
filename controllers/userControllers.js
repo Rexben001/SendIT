@@ -77,21 +77,30 @@ class UserController {
       });
 	}
 
+/*
+	SELECT users.*, addresses.*
+FROM users
+INNER JOIN addresses
+ON users.id = addresses.user_id
+*/
 
 	static userParcel(req, res) {
-		const id = Number(req.params.id);
-		const user = Users.find(u => u.id === id);
-
-		if (!user) {
-			return res.status(404).json({
-				message: 'user not found',
-			});
-		}
-
-		return res.status(200).json({
-			message: 'Parcel retrieved successfully',
-			parcels: user.parcels,
-		});
+		const id = req.params.id;
+    pool.connect((err, client, done) => {
+			const query = `SELECT parcels.*, users.* FROM parcels INNER JOIN users ON (users.user_id=${id}) = (parcels.user_id=${id})`;
+      client.query(query, (error, result) => {
+          done();
+          if (error) {
+            return res.status(400).json({
+							result: "No parcel found for this user",
+							error,
+							});
+						} 
+          return  res.json({status: 'success',
+						result: result
+					});
+        });
+    });
 	}
 }
 
