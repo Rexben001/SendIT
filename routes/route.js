@@ -2,6 +2,7 @@ import express from 'express';
 import parcelController from '../controllers/parcelControllers';
 import userController from '../controllers/userControllers';
 import validator from '../middlewares/validation';
+import auth from '../middlewares/authenticate';
 
 
 
@@ -17,8 +18,8 @@ router.put('/api/v1/parcels/:parcel_id/presentLocation', parcelController.presen
 
 
 router.get('/api/v1/users', userController.getUsers);
-router.post('/api/v1/auth/signup', validator.userValidator, userController.addUser);
+router.post('/api/v1/auth/signup', validator.userValidator, auth.authUser, userController.addUser);
 router.get('/api/v1/users/:user_id/parcels', userController.userParcel);
-router.get('/api/v1/users/login', userController.loginUser);
+router.get('/api/v1/users/login', auth.authLogin, userController.loginUser);
 
 export default router;

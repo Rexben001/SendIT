@@ -1,5 +1,6 @@
 import Users from '../models/dummyData/users';
 import value from '../models/userdb';
+import bcrypt from 'bcryptjs';
 
 const pool = value.pool;
 
@@ -37,8 +38,8 @@ class UserController {
 			email: req.body.email,
 			country: req.body.country,
 			phone: req.body.phone,
-			password: req.body.password,
-		};
+			password: bcrypt.hashSync(req.body.password, 8),
+							};
 		  pool.connect((err, client, done) => {
 			const query = 'INSERT INTO users(name, email, country, phone, password) VALUES($1,$2,$3,$4,$5) RETURNING *';
 			const values = [user.name, user.email, user.country, user.phone, user.password];
@@ -46,7 +47,9 @@ class UserController {
 			client.query(query, values, (error, result) => {
 			  done();
 			  if (error) {
-				return res.status(400).json({error});
+				return res.status(400).json({
+					error,
+				message: "There was a problem registering the user."});
 			  }
 			 return res.status(202).send({
 				status: 'Successful',
@@ -62,19 +65,19 @@ class UserController {
         pool.connect((err, client, done) => {
 			const query = 'SELECT * FROM users where name=$1 and password=$2';
 			const value = [name, password];
-            client.query(query, value, (error, result) => {
-              done();
-              if (error) {
-                return res.status(400).json({
+			client.query(query, value, (error, result) => {
+			  done();
+			  if (error) {
+				return res.status(400).json({
 					error,
-				result: "Enter the correct details"
+				message: "There was a problem registering the user."});
+			  }
+			 return res.status(202).send({
+				status: 'Successful',
+				result: result.rows,
+			  });
 			});
-              } 
-              return  res.json({status: 'success',
-			result: "Welcome to Send IT"
-		});
-          });
-      });
+			});
 	}
 
 
