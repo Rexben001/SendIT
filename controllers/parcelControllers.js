@@ -41,11 +41,12 @@ class ParcelController {
 		phoneOfPicker: req.body.phoneOfPicker,
 		destination: req.body.destination,
 		status: req.body.status,
+		user_id: req.body.user_id,
 		};
 
 		pool.connect((err, client, done) => {
-			const query = 'INSERT INTO parcels(weight, username, emailAddress, pickup, phone, picker, emailOfPicker, phoneOfPicker, destination, status) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10) RETURNING *';
-			const values = [parcel.weight, parcel.username, parcel.emailAddress, parcel.pickup, parcel.phone, parcel.picker, parcel.emailOfPicker, parcel.phoneOfPicker, parcel.destination, parcel.status];
+			const query = 'INSERT INTO parcels(weight, username, emailAddress, pickup, phone, picker, emailOfPicker, phoneOfPicker, destination, status, user_id) VALUES($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11) RETURNING *';
+			const values = [parcel.weight, parcel.username, parcel.emailAddress, parcel.pickup, parcel.phone, parcel.picker, parcel.emailOfPicker, parcel.phoneOfPicker, parcel.destination, parcel.status, parcel.user_id];
 		
 			client.query(query, values, (error, result) => {
 			  done();

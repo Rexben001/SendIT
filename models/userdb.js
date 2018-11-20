@@ -22,7 +22,7 @@ const createTables = () => {
 		users(
 		  user_id SERIAL PRIMARY KEY,
 		  name VARCHAR(128) NOT NULL,
-		  phone INT NOT NULL,
+		  phone VARCHAR(128) NOT NULL,
 		  email VARCHAR(128) NOT NULL,
 		  country VARCHAR(128) NOT NULL,
 		  password VARCHAR(128) NOT NULL
