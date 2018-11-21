@@ -1,12 +1,14 @@
 const pg = require('pg');
 
 const config = {
-  user: 'postgres', //this is the db user credential
-  database: 'sendit_db',
-  password: null,
-  port: 5432,
-  max: 10, // max number of clients in the pool
-  idleTimeoutMillis: 90000,
+  // user: 'postgres', //this is the db user credential
+  // database: 'sendit_db',
+  // password: null,
+  // port: 5432,
+  // max: 10, // max number of clients in the pool
+	// idleTimeoutMillis: 90000,
+	connectionString: 'postgres://zdrhktfw:GYE3NZkk6he9Uef8SiNd1BXnM-6b75BH@stampy.db.elephantsql.com:5432/zdrhktfw'
+
 };
 
 const pool = new pg.Pool(config);
@@ -18,15 +20,21 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-	const userTable = `CREATE TABLE IF NOT EXISTS
-		users(
-		  user_id SERIAL PRIMARY KEY,
-		  name VARCHAR(128) NOT NULL,
-		  phone VARCHAR(128) NOT NULL,
-		  email VARCHAR(128) NOT NULL,
-		  country VARCHAR(128) NOT NULL,
-		  password VARCHAR(128) NOT NULL
-		)`;
+	const userTable = `DROP TABLE IF EXISTS users;
+	CREATE TABLE IF NOT EXISTS
+	users(
+		user_id SERIAL PRIMARY KEY,
+		firstname VARCHAR(128) NOT NULL,
+		lastname VARCHAR(128) NOT NULL,
+		othernames VARCHAR(128) NOT NULL,
+		phone VARCHAR(128) NOT NULL,
+		username VARCHAR(128) NOT NULL,
+				 email VARCHAR(128) NOT NULL,
+		password VARCHAR(128) NOT NULL,
+		registered DATE,
+		isAdmin BOOLEAN NOT NULL
+
+	)`;
 	pool.query(userTable)
 	  .then((res) => {
 		console.log(res);
@@ -52,4 +60,5 @@ const createTables = () => {
   };
   
   require('make-runnable');
-  
+
+	// createTables();

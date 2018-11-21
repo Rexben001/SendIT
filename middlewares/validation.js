@@ -6,10 +6,13 @@ class Validation{
 static userValidator(req, res, next){
     
     let validator = new validate( req.body, {
-        name: 'required|minLength:3',
+        firstname: 'required|minLength:3',
+        lastname: 'required|minLength:3',
+        othernames: 'required|minLength:3',
         email:'required|email',
+        username: 'required|minLength:3',
         password: 'required',
-        phone: 'required|numeric',
+        phone: 'required',
         });
  
     validator.check().then(function (matched) {
@@ -25,15 +28,13 @@ static parcelValidator(req, res, next){
     
     let validator = new validate( req.body, {
 		weight: 'required|numeric',
-		username: 'required|minLength:3',
 		emailAddress: 'required|email',
-		pickup: 'required',
-		phone: 'required|numeric',
-		picker: 'required|minLength:3',
-		emailOfPicker: 'required|email',
-		phoneOfPicker: 'required|numeric',
-		destination: 'required',
-		status: 'required',
+		weightmetric: 'required|string',
+		from_address: 'required',
+		to_address: 'required|minLength:3',
+		receiver: 'required',
+        status: 'required',
+        phoneOfReceiver: 'required',
         });
  
     validator.check().then(function (matched) {
