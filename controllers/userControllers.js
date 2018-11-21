@@ -1,4 +1,3 @@
-import Users from '../models/dummyData/users';
 import value from '../models/userdb';
 
 const pool = value.pool;
@@ -57,23 +56,25 @@ class UserController {
 	}
 
 	static loginUser(req, res) {
-		const name = req.body.name;
 		const password = req.body.password;
+		const data = req.body.name;
 		pool.connect((err, client, done) => {
-			const query = `SELECT * FROM users where name=$1 and password=$2`;
-			const value = [name, password]
+			const query = `SELECT * FROM users WHERE name=$1 AND password=$2`;
+			const value = [data, password];
 			client.query(query, value, (error, result) => {
 				done();
+				if(err){
+					return res.status(400).json({ err });
+				}
 				if (error) {
-					return res.status(400).json({
-						error,
-						result: name
+					console.log(error);
+					return res.status(400).json({ error });
+				} else {
+					return res.status(202).send({
+						status: 'Successful',
+						result: result,
 					});
 				}
-				return res.json({
-					status: 'success',
-					result: req.body
-				});
 			});
 		});
 	}
