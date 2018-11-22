@@ -1,10 +1,11 @@
 const pg = require('pg');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const config = {
-  connectionString: 'postgres://zdrhktfw:GYE3NZkk6he9Uef8SiNd1BXnM-6b75BH@stampy.db.elephantsql.com:5432/zdrhktfw'
-
+  connectionString: process.env.DATABASE_URL
 };
-
 const pool = new pg.Pool(config);
 
 pool.on('connect', () => {
@@ -28,6 +29,7 @@ const createTables = () => {
 				)`;
   pool.query(userTable)
 	  .then(() => {
+			console.log('table created')
       pool.end();
 	  })
 	  .catch(() => {

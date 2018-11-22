@@ -1,7 +1,10 @@
 const pg = require('pg');
+const dotenv = require('dotenv');
+
+dotenv.config();
 
 const config = {
-  connectionString: 'postgres://zdrhktfw:GYE3NZkk6he9Uef8SiNd1BXnM-6b75BH@stampy.db.elephantsql.com:5432/zdrhktfw'
+  connectionString: process.env.DATABASE_URL
 };
 
 const pool = new pg.Pool(config);
@@ -22,13 +25,14 @@ const createTables = () => {
         to_address VARCHAR(128) NOT NULL,
         currentLocation  VARCHAR(128),
         receiver VARCHAR(128) NOT NULL,
-        status VARCHAR(128),
+        status VARCHAR(128) NOT NULL,
         phoneOfReceiver VARCHAR NOT NULL,
         placedBy INTEGER REFERENCES users(user_id)
 		);`;
 
   pool.query(parcelTable)
     .then(() => {
+      console.log('Table created')
       	pool.end();
 	  })
 	  .catch(() => {

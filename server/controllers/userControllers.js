@@ -1,6 +1,10 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
 import config from '../models/userdb';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
 
 const { pool } = config;
 
@@ -63,7 +67,7 @@ class UserController {
           const payload = {
             id: result.rows[0].user_id,
           };
-          jwt.sign(payload, 'ertyuio', (err, token) => {
+          jwt.sign(payload, process.env.SECRETKEY, (err, token) => {
             res.json({
               result: 'Success',
               token
