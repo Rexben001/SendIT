@@ -1,6 +1,11 @@
 import express from 'express';
 import bodyParser from 'body-parser';
 import router from './routes/route';
+import parcel from './models/parcelsdb';
+import users from './models/userdb';
+
+parcel.createTables();
+users.createTables();
 
 const app = express();
 app.use(bodyParser.json());

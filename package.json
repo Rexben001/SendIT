@@ -8,10 +8,9 @@
 	},
 	"scripts": {
 		"start": "node ./server/server.js --exec babel-node --presets es2015",
-		"start-dev": "node ./server/server.js --exec babel-node --presets es2015",
+		"start-dev": "nodemon ./server/server.js --exec babel-node --presets es2015",
 		"parcelTable": "node ./server/models/parcelsdb createTables",
 		"userTable": "node ./server/models/userdb createTables",
-		"startdb": "psql -U postgres -h127.0.0.1 sendit_db",
 		"test": "nyc mocha --exit --timeout 30000 --compilers js:babel-core/register ./server/test/*.js",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
 		"lint": "./node_modules/.bin/eslint ./server --config .eslintrc.json",
