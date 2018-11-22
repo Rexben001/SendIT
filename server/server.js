@@ -22,10 +22,8 @@ router.get('/', (req, res) => res.status(200).json({
 
 app.use('/api/v1', router);
 
-const PORT = 3000;
 
-app.listen(PORT, () => {
-  console.log('Listening...');
-});
+
+app.listen(3000 || process.env.PORT);
 
 export default app;
