@@ -1,5 +1,6 @@
 import value from '../models/userdb';
 import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 const pool = value.pool;
 
@@ -39,30 +40,41 @@ class UserController {
 					message: 'Unable to hash password'
 				})
 			}
+			const { firstname, lastname, othernames, username, email, phone, is_admin } = req.body;
 			const user = {
-				firstname: req.body.firstname,
-				lastname: req.body.lastname,
-				othernames: req.body.othernames,
-				username: req.body.username,
-				email: req.body.email,
-				phone: req.body.phone,
+				firstname,
+				lastname,
+				othernames,
+				username,
+				email,
+				phone,
 				password: hash,
-				isAdmin: req.body.isAdmin,
+				is_admin,
 
 			};
 			pool.connect((err, client, done) => {
-				const query = 'INSERT INTO users(firstname, lastname, othernames, username, email, phone, password, isAdmin, registered) VALUES($1,$2,$3,$4,$5,$6,$7,$8,NOW()) RETURNING *';
-				const values = [user.firstname, user.lastname, user.othernames, user.username, user.email, user.phone, user.password, user.isAdmin];
+				const query = 'INSERT INTO users(firstname, lastname, othernames, username, email, phone, password, is_admin, registered) VALUES($1,$2,$3,$4,$5,$6,$7,$8,NOW()) RETURNING *';
+				const values = [user.firstname, user.lastname, user.othernames, user.username, user.email, user.phone, user.password, user.is_admin];
 
 				client.query(query, values, (error, result) => {
 					done();
 					if (error) {
 						return res.status(400).json({ error });
+					} else {
+						console.log(result.rows[0].is_admin)
+						const payload = {
+							id: result.rows[0].user_id,
+						}
+						jwt.sign(payload, 'ertyuio', (err, token) => {
+							res.json({
+								status: 200,
+								result: 'Success',
+								token
+							})
+						});
+				  
+						
 					}
-					return res.status(200).send({
-						status: 'Successful',
-						result: result.rows,
-					});
 				});
 			});
 		})
@@ -73,7 +85,7 @@ class UserController {
 		const password = req.body.password;
 		const data = req.body.username;
 		pool.connect((err, client, done) => {
-			const query = `SELECT password FROM users WHERE username=$1`;
+			const query = `SELECT * FROM users WHERE username=$1`;
 			const value = [data];
 			client.query(query, value, (error, result) => {
 				done();
@@ -84,19 +96,24 @@ class UserController {
 
 				}
 				else {
-					bcrypt.compare(password, result.rows[0].password, (err, result) => {
-						console.log(result);
+					bcrypt.compare(password, result.rows[0].password, (err, hash) => {
+						if (hash === false) {
+							return res.json({
+								message: "Invalid password",
+							})
+						}
 						if (err) {
 							return res.json({ err });
 						}
 						if (error) {
-							console.log(error);
 							return res.json({ error });
 						} else {
-							return res.json({
+
+							return res.status(200).send({
 								status: 'Successful',
-								result: 'Welcome to Send It'
+								result: 'Welcome'
 							});
+
 						}
 					});
 
@@ -109,31 +126,31 @@ class UserController {
 
 
 	static userParcel(req, res) {
-					const id = req.params.user_id;
-					pool.connect((err, client, done) => {
-						const query = `SELECT * FROM parcels WHERE user_id=${id}`;
-						client.query(query, (error, result) => {
-							done();
-							if (error) {
-								return res.json({
-									result: "An error occurred",
-									error,
-								});
-							} else{
-								if (result.rowCount === 0) {
-									return res.json({
-										status: 'Failed',
-										message: 'No users information found',
-									});
-								}
-							return res.json({
-								status: 'success',
-								result: result.rows
-							});
-						}
+		const id = req.params.user_id;
+		pool.connect((err, client, done) => {
+			const query = `SELECT * FROM parcels WHERE user_id=${id}`;
+			client.query(query, (error, result) => {
+				done();
+				if (error) {
+					return res.json({
+						result: "An error occurred",
+						error,
+					});
+				} else {
+					if (result.rowCount === 0) {
+						return res.json({
+							status: 'Failed',
+							message: 'No users information found',
 						});
+					}
+					return res.json({
+						status: 'success',
+						result: result.rows
 					});
 				}
+			});
+		});
+	}
 }
 
 

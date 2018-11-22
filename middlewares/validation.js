@@ -28,7 +28,6 @@ static parcelValidator(req, res, next){
     
     let validator = new validate( req.body, {
 		weight: 'required|numeric',
-		emailAddress: 'required|email',
 		weightmetric: 'required|string',
 		from_address: 'required',
 		to_address: 'required|minLength:3',

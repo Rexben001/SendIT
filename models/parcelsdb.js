@@ -13,7 +13,7 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-  const parcelTable = `DROP TABLE IF EXISTS parcels;
+  const parcelTable = `
   CREATE TABLE IF NOT EXISTS
 		parcels(
 		      parcel_id SERIAL PRIMARY KEY,

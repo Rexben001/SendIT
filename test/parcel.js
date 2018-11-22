@@ -22,7 +22,8 @@ describe('API route testing', () => {
 				destination: 'Anthony',
 				status: 'Delivered',
 				presentLocation: 'VI',
-				user_id: 1
+				user_id: 1,
+				isAdmin: false
 			};
 			chai.request(app)
 				.post('/api/v1/parcels')

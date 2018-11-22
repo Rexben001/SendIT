@@ -20,7 +20,7 @@ pool.on('connect', () => {
 
 
 const createTables = () => {
-	const userTable = `DROP TABLE IF EXISTS users;
+	const userTable = `
 	CREATE TABLE IF NOT EXISTS
 	users(
 		user_id SERIAL PRIMARY KEY,
@@ -32,7 +32,7 @@ const createTables = () => {
 				 email VARCHAR(128) NOT NULL,
 		password VARCHAR(128) NOT NULL,
 		registered DATE,
-		isAdmin BOOLEAN NOT NULL
+		is_admin BOOLEAN NOT NULL
 
 	)`;
 	pool.query(userTable)
