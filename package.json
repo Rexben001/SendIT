@@ -2,10 +2,7 @@
 	"name": "sendit",
 	"version": "1.0.0",
 	"description": "A courier service project",
-	"main": "app.js",
-	"engines": {
-		"node": "8.11.2"
-	},
+	"main": "./server/server.js",
 	"scripts": {
 		"start": "nodemon ./server/server.js --exec babel-node --presets es2015",
 		"parcelTable": "node ./server/models/parcelsdb createTables",
