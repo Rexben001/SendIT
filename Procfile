@@ -1,1 +1,1 @@
-web: node ./server/server.js --exec babel-node --presets es2015;
+web: babel-node server/server.js
