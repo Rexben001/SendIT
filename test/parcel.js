@@ -10,15 +10,19 @@ describe('API route testing', () => {
 	describe('POST /v1/parcels', () => {
 		it('it should create a parcel', ((done) => {
 			const parcel = {
-				weight: 34.5,
-				weightmetric:'kg',
-				placedBy: 1,
-				from: 'Idumota',
-				to: 'Ipaja',
-				receiver: 'John',
-				currentLocation: 'Ketu',
+				
+				weight: '34',
+				username: 'Ben',
+				emailAddress: 'rexben.rb@gmail.com',
+				pickup: 'Igbe',
+				phone: '0987654',
+				picker: 'James',
+				emailOfPicker: 'rex@gmail.com',
+				phoneOfPicker: '2345678',
+				destination: 'Anthony',
 				status: 'Delivered',
-				phoneOfReceiver: '123456789',
+				presentLocation: 'VI',
+				user_id: 1
 			};
 			chai.request(app)
 				.post('/api/v1/parcels')
@@ -26,7 +30,6 @@ describe('API route testing', () => {
 				.end((err, res) => {
 					res.should.have.status(200);
 					res.body.should.be.a('Object');
-					console.log(err);
 					done(err);
 				});
 		}));
@@ -55,15 +58,23 @@ describe('API route testing', () => {
 				});
 		}));
 
-	
+		it('it should return error 404', ((done) => {
+			chai.request(app)
+				.get(`/api/v1/parcels/${3}`)
+				.end((err, res) => {
+					res.should.have.status(404);
+					res.body.message.should.equal('parcel not found');
+					done(err);
+				});
+		}));
 	});
-	describe('PUT /v1/parcels/:id/destination', () => {
-		it('it should update the destination of a particular parcel', ((done) => {
+	describe('PUT /v1/parcels/:id/edit', () => {
+		it('it should produce parcel updated successfully', ((done) => {
 			const parcelDestination = {
 				destination: 'Igbe road',
 			};
 			chai.request(app)
-				.put(`/api/v1/parcels/${1}/destination`)
+				.put(`/api/v1/parcels/${1}/edit`)
 				.send(parcelDestination)
 				.end((err, res) => {
 					res.should.have.status(201);

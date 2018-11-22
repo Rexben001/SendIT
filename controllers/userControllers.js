@@ -61,33 +61,25 @@ class UserController {
 	}
 
 	static loginUser(req, res) {
-		const name = req.body.username;
-		const password =  req.body.password;
-	
+		const password = req.body.password;
+		const data = req.body.name;
 		pool.connect((err, client, done) => {
-			const query = `SELECT * FROM users where username=${name}`;
-			console.log(query);
-			// if(query[0] == null || undefined){
-			// 	bcrypt.compare(password, )
-			// }
-			const value = [name, password]
-			client.query(query, (error, result) => {
+			const query = `SELECT * FROM users WHERE name=$1 AND password=$2`;
+			const value = [data, password];
+			client.query(query, value, (error, result) => {
 				done();
+				if(err){
+					return res.status(400).json({ err });
+				}
 				if (error) {
-					return res.status(400).json({
-						error,
+					console.log(error);
+					return res.status(400).json({ error });
+				} else {
+					return res.status(202).send({
+						status: 'Successful',
+						result: result,
 					});
 				}
-				if (result.rowCount === 0) {
-					return res.status(404).send({
-						status: 'Failed',
-						message: 'No users information found',
-					});
-				}
-				return res.json({
-					status: 'success',
-					message: 'Welcome to send it'
-				});
 			});
 		});
 	}
