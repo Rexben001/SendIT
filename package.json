@@ -3,6 +3,9 @@
 	"version": "1.0.0",
 	"description": "A courier service project",
 	"main": "./server/server.js",
+	"engines":{
+		"node": "8.11.4"
+	},
 	"scripts": {
 		"start": "babel-node ./server/server.js",
 		"migrate": "babel-node ./server/models/migrate.js",
