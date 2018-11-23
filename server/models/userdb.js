@@ -1,7 +1,8 @@
 const pg = require('pg');
 
 const config = {
-  connectionString: 'postgres://zdrhktfw:GYE3NZkk6he9Uef8SiNd1BXnM-6b75BH@stampy.db.elephantsql.com:5432/zdrhktfw'
+ // connectionString: 'postgres://zdrhktfw:GYE3NZkk6he9Uef8SiNd1BXnM-6b75BH@stampy.db.elephantsql.com:5432/zdrhktfw'
+ connectionString: 'postgres://localhost:5432/sendit_db'
 };
 
 const pool = new pg.Pool(config);

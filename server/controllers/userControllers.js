@@ -81,11 +81,11 @@ class UserController {
       const values = [username];
       client.query(query, values, (error, result) => {
         done();
-        if (result.rowCount === 0 || err) {
-          return res.json({
-            message: 'Pls, enter a valid username'
-          });
-        }
+        // if (result.rowCount == 0 || err) {
+        //   return res.json({
+        //     message: 'Pls, enter a valid username'
+        //   });
+        // }
         
         if(err) return error;
 

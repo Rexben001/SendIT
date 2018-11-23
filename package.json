@@ -9,6 +9,7 @@
 	"scripts": {
 		"start": "babel-node ./server/server.js",
 		"migrate": "babel-node ./server/models/migrate.js",
+		"start-dev": "nodemon babel-node ./server/server.js",
 		"test": "nyc mocha --exit --timeout 30000 --require babel-register --require babel-polyfill ./server/test/*.js",
 		"coverage": "nyc report --reporter=text-lcov | coveralls",
 		"lint": "./babel-node_modules/.bin/eslint ./server --config .eslintrc.json",
