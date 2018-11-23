@@ -1,1 +1,1 @@
-web: node app;
+web: node --compilers js:babel-core/register ./server/server.js
