@@ -2,10 +2,7 @@
 	"name": "sendit",
 	"version": "1.0.0",
 	"description": "A courier service project",
-	"main": "app.js",
-	"engines": {
-		"node": "8.11.2"
-	},
+	"main": "./server/server.js",
 	"scripts": {
 		"build": "babel ./ -d build",
 		"start": "babel-node server/server.js",

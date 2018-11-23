@@ -10,7 +10,8 @@
 # SendIT
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
-#Some of the features of the App
+#  Some of the features of the App
+
 1. Users can create an account and log in.
 2. Users can create a parcel delivery order.
 3. Users can change the destination of a parcel delivery order.
@@ -18,4 +19,46 @@ SendIT is a courier service that helps users deliver parcels to different destin
 5. Users can see the details of a delivery order.
 6. Admin can change the status and present location of a parcel delivery order.
 
-#Andela Developer Challenge
+
+# Technologies used includes
+Node 
+Express
+Mocha
+Nyc
+Travis
+Coveralls
+Babel
+Elephantsql
+
+# How to install and test SendIT
+`git clone https://github.com/Rexben001/SendIT.git`
+
+`git checkout develop`
+
+`npm install`
+
+Setup database
+
+- Go to https://www.elephantsql.com to create a database online
+
+- Create a .evn file and add your database url gotten from elephantsql like DATABASE_URL=postgres://toywhsjskoddjdbulxodbshd
+
+- Add a scretkey inside your .env file for authentication like SECRETKEY=secretkeyjwt
+
+`npm run start-dev`
+
+`npm test`
+
+# Details on API endpoints
+GET /parcels              --- Fetch all parcel delivery orders
+
+GET /parcels/<parcelId>   ---  Fetch a specific parcel delivery order
+  
+GET /users/<userId>/parcels  --- Fetch all parcel delivery orders by a specific user
+  
+PUT /parcels/<parcelId>/cancel ---  Cancel the specific parcel delivery order
+  
+POST /parcels                  ---   Create a parcel delivery order
+
+
+
