@@ -30,8 +30,11 @@ Coveralls
 Babel
 
 # How to install and test SendIT
-To install all the dependencies
-# npm install
+`git clone https://github.com/Rexben001/SendIT.git`
+`git checkout develop`
+`npm install`
+`npm run start-dev`
+`npm test`
 To test the App
 # npm start
 
