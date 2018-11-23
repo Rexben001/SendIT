@@ -10,7 +10,7 @@ pool.on('connect', () => {
 });
 
 
-const createTables = () => {
+const createParcelsTable = async () => {
   const parcelTable = `CREATE TABLE IF NOT EXISTS
         parcels(
 		    parcel_id SERIAL PRIMARY KEY,
@@ -27,24 +27,14 @@ const createTables = () => {
         placedBy INTEGER REFERENCES users(user_id)
 		);`;
 
-  pool.query(parcelTable)
-    .then(() => {
-      	pool.end();
-	  })
-	  .catch(() => {
-      pool.end();
-	  });
+  const result = await pool.query(parcelTable);
+  console.log(result);
 };
 
 
-pool.on('remove', () => {
-  process.exit(0);
-});
-
-
-// export pool and createTables to be accessible  from an where within the application
+// export pool and createParcelsTable to be accessible  from an where within the application
 module.exports = {
-  createTables,
+  createParcelsTable,
   pool,
 };
 

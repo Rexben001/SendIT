@@ -1,1 +1,1 @@
-web: node --compilers js:babel-core/register ./server/server.js
+web: npm run start
