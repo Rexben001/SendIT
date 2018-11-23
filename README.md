@@ -28,15 +28,25 @@ Nyc
 Travis
 Coveralls
 Babel
+Elephantsql
 
 # How to install and test SendIT
 `git clone https://github.com/Rexben001/SendIT.git`
+
 `git checkout develop`
+
 `npm install`
+
+Setup database
+
+- Go to https://www.elephantsql.com to create a database online
+
+- Create a .evn file and add your database url gotten from elephantsql like DATABASE_URL=postgres://toywhsjskoddjdbulxodbshd
+
+- Add a scretkey inside your .env file for authentication like SECRETKEY=secretkeyjwt
+
 `npm run start-dev`
 `npm test`
-To test the App
-# npm start
 
 # Details on API endpoints
 GET /parcels              --- Fetch all parcel delivery orders
