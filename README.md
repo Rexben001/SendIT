@@ -1,4 +1,5 @@
 
+
 [![Build Status](https://travis-ci.org/Rexben001/SendIT.svg?branch=develop)](https://travis-ci.org/Rexben001/SendIT)
 [![Coverage Status](https://coveralls.io/repos/github/Rexben001/SendIT/badge.svg?branch=master)](https://coveralls.io/github/Rexben001/SendIT?branch=develop)
 [![Code Climate](https://codeclimate.com/github/codeclimate/codeclimate/badges/gpa.svg)](https://codeclimate.com/github/Rexben001/SendIT)
@@ -9,13 +10,15 @@
 # SendIT
 SendIT is a courier service that helps users deliver parcels to different destinations. SendIT provides courier quotes based on weight categories.
 
-# Some of the features of the App
+#  Some of the features of the App
+
 1. Users can create an account and log in.
 2. Users can create a parcel delivery order.
 3. Users can change the destination of a parcel delivery order.
 4. Users can cancel a parcel delivery order.
 5. Users can see the details of a delivery order.
 6. Admin can change the status and present location of a parcel delivery order.
+
 
 # Technologies used includes
 Node 
@@ -25,12 +28,26 @@ Nyc
 Travis
 Coveralls
 Babel
+Elephantsql
 
 # How to install and test SendIT
-To install all the dependencies
-# npm install
-To test the App
-# npm start
+`git clone https://github.com/Rexben001/SendIT.git`
+
+`git checkout develop`
+
+`npm install`
+
+Setup database
+
+- Go to https://www.elephantsql.com to create a database online
+
+- Create a .evn file and add your database url gotten from elephantsql like DATABASE_URL=postgres://toywhsjskoddjdbulxodbshd
+
+- Add a scretkey inside your .env file for authentication like SECRETKEY=secretkeyjwt
+
+`npm run start-dev`
+
+`npm test`
 
 # Details on API endpoints
 GET /parcels              --- Fetch all parcel delivery orders
@@ -42,5 +59,6 @@ GET /users/<userId>/parcels  --- Fetch all parcel delivery orders by a specific 
 PUT /parcels/<parcelId>/cancel ---  Cancel the specific parcel delivery order
   
 POST /parcels                  ---   Create a parcel delivery order
+
 
 
