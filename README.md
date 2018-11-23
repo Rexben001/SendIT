@@ -46,6 +46,7 @@ Setup database
 - Add a scretkey inside your .env file for authentication like SECRETKEY=secretkeyjwt
 
 `npm run start-dev`
+
 `npm test`
 
 # Details on API endpoints
