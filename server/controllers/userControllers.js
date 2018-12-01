@@ -29,6 +29,30 @@ class UserController {
     });
   }
 
+  static userParcel(req, res) {
+    const username = req.body.username;
+    pool.connect((err, client, done) => {
+      const query = 'SELECT * FROM users where username=$1';
+      const val = [username];
+      client.query(query, val, (error, result) => {
+        done();
+        if (error) {
+          res.json({ error : 'Error getting users'});
+        }
+        if (result.rows < 1) {
+          res.status(404).send({
+            status: 'Failed',
+            message: 'No users information found',
+          });
+        } else {
+          res.json({
+            message: 'Users Information retrieved',
+            users: result.rows,
+          });
+        }
+      });
+    });
+  }
 
   static addUser(req, res) {
     bcrypt.hash(req.body.password, 10, (err, hash) => {
@@ -105,29 +129,34 @@ class UserController {
   }
 
 
-  static userParcel(req, res) {
-    const id = req.params.user_id;
-    pool.connect((client, done) => {
-      const query = `SELECT * FROM parcels WHERE user_id=${id}`;
-      client.query(query, (error, result) => {
-        done();
-        if (error) {
-          return res.json({
-            result: 'An error occurred',
-          });
-        }
-        if (result.rowCount === 0) {
-          return res.json({
-            message: 'No users information found',
-          });
-        }
-        return res.json({
-          result: result.rows[0]
-        });
-      });
-    });
-  }
-}
+ 
+
+
+//   static userParcel(req, res) {
+//     const id = req.params.user_id;
+//     pool.connect((client, done) => {
+//       const query = `SELECT * FROM parcels WHERE user_id=${id}`;
+      
+//       console.log(pool);
+//       client.query(query, (error, result) => {
+//         done();
+//         if (error) {
+//           return res.json({
+//             result: 'An error occurred',
+//           });
+//         }
+//         if (result.rowCount === 0) {
+//           return res.json({
+//             message: 'No users information found',
+//           });
+//         }
+//         return res.json({
+//           result: result.rows[0]
+//         });
+//       });
+//     });
+//   }
+// }
 
 
 export default UserController;
