@@ -132,31 +132,31 @@ class UserController {
  
 
 
-//   static userParcel(req, res) {
-//     const id = req.params.user_id;
-//     pool.connect((client, done) => {
-//       const query = `SELECT * FROM parcels WHERE user_id=${id}`;
+  static userParcel(req, res) {
+    const id = req.params.user_id;
+    pool.connect((client, done) => {
+      const query = `SELECT * FROM parcels WHERE user_id=${id}`;
       
-//       console.log(pool);
-//       client.query(query, (error, result) => {
-//         done();
-//         if (error) {
-//           return res.json({
-//             result: 'An error occurred',
-//           });
-//         }
-//         if (result.rowCount === 0) {
-//           return res.json({
-//             message: 'No users information found',
-//           });
-//         }
-//         return res.json({
-//           result: result.rows[0]
-//         });
-//       });
-//     });
-//   }
-// }
+      console.log(pool);
+      client.query(query, (error, result) => {
+        done();
+        if (error) {
+          return res.json({
+            result: 'An error occurred',
+          });
+        }
+        if (result.rowCount === 0) {
+          return res.json({
+            message: 'No users information found',
+          });
+        }
+        return res.json({
+          result: result.rows[0]
+        });
+      });
+    });
+  }
+}
 
 
 export default UserController;
