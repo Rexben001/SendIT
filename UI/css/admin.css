@@ -8,10 +8,10 @@ table.blueTable {
   }
   table.blueTable td, table.blueTable th {
     border: 1px solid #AAAAAA;
-    padding: 15px 10px;
+    padding: 1.0rem 0.8rem;
   }
   table.blueTable tbody td {
-    font-size: 13px;
+    font-size: 1.0rem;
   }
   table.blueTable tr:nth-child(even) {
     background: #D0E4F5;
@@ -69,4 +69,17 @@ opacity:0.7;
 #searchbox{
 text-align: right;
 margin-top: 50px;
+}
+
+@media (max-width: 678px){
+ table{
+   overflow-x: auto;
+   width: 100%
+ }
+  footer{
+      display: none;
+   }
+   /* header{
+     width: 160%
+   } */
 }
