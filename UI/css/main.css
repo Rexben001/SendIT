@@ -43,3 +43,26 @@ img{
     background: #ebe5e5;
     margin-bottom: 30px;
 }
+
+@media screen and (max-width: 420px){
+    #siteName{
+        font-size: 1.5em
+    }
+#about{
+    font-size: 1.0em
+}
+#homepage .card{
+    width: 100%
+}
+footer #foot{
+    text-align: center;
+    font-size: 0.9em;
+    padding: 10dp;
+    margin-right: 100dp;
+}
+
+footer{
+    margin: auto
+}
+
+}
