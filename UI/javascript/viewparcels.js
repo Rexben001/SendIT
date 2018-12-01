@@ -9,10 +9,10 @@ const editStat = document.getElementById('editStat');
 
 
 idOfParcel.addEventListener('click', function(){
-    if(parcelOne.style.display === 'block'){
-        parcelOne.style.display = 'none';
+    if(parcelOne.style.display === 'none'){
+        parcelOne.style.display = 'block';
     }else{
-        parcelOne.style.display = "block";
+        parcelOne.style.display = "none";
     }
 });
 

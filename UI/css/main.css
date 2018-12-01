@@ -1,4 +1,4 @@
-
+/* 
 #siteName{
     padding: 30px 30px 0px;
     text-align: center;
@@ -14,9 +14,9 @@
     margin-top: -42px;
 }
 #overlays{
-    background: rgb(0, 0, 0); /* Fallback color */
-    background: rgba(0, 0, 0, 0.4); /* Black background with 0.5 opacity */
-    color: #f1f1f1; /* Grey text */
+    background: rgb(0, 0, 0); 
+    background: rgba(0, 0, 0, 0.4);
+    color: #f1f1f1;
     height: inherit;
     width: inherit;
 }
@@ -27,7 +27,7 @@
     text-align: center;
     margin: 0 auto 30px;
     font-size: 20px
-}
+} */
 
 img{
     width: 100%;
