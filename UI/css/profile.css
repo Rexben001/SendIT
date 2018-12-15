@@ -6,6 +6,7 @@
     padding:50px 10px;
     text-align: center;
     font-weight: bold;
+    margin-top: 10px;
 }
 
 #details{
@@ -74,10 +75,13 @@
         margin: auto;
     }
     #profile, #details{
-        width: 90%;
+        width: 95%;
+        margin: 10px
     }
     .card{
         width: 90%;
+        margin: 10px
+
     }
     section{
         height: auto

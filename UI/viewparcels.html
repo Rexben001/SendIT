@@ -8,6 +8,7 @@
     <title>View All Parcels</title>
     <link rel="icon" type="image/png" href="img/logo.png">
     <link rel="stylesheet" href="css/style.css">
+    <!-- <link rel="stylesheet" href="css/viewp.css"> -->
     <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
 </head>
 <body>
@@ -26,7 +27,8 @@
 
         </ul>
     </header>
-            <section>
+    <div class="me">
+            <section class="parc">
                     <div id="viewAllParcel">
                             <h2>List of Parcel delivery order</h2>
                             <br>
@@ -43,9 +45,25 @@
                                 <input type="submit" value="Cancel Order">
                                 </div>
                                 </div>
+                                <div id="viewAllParcel">
+                                    <h2>List of Parcel delivery order</h2>
+                                    <br>
+                                    <h4 id="idOfParcel"><i class="fa fa-angle-double-right"></i> #i.d 2357</h4>
+                                    <div id="parcelOne">
+                                        <h3>Parcel</h3>
+                                        <p>Weight</p>
+                                        <p>Pickup location</p>
+                                        <p>Reciever</p>
+                                        <p><span id="dest">Destination </span> <a href="#" id="editDest">Edit</a></p>
+                                        <p id="des"><textarea id="destination"></textarea><a href="#" id="saveDest">Save</a></p>
+                                        <p>Price</p>
+                                        <br>
+                                        <input type="submit" value="Cancel Order">
+                                        </div>
+                                        </div>
                                 </section>
           
-                                <footer class="center bg-dark">
+                                <footer class="center">
                                     <div class="grid-3 center">
                                       <div>
                                     
@@ -58,6 +76,7 @@
                                 </div>
                                 </div>
                                 </footer>
+                            </div>
                                 <script src="./javascript/main.js"></script>
             <script src="javascript/viewparcels.js"></script>
 </body>
