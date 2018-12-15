@@ -1,111 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content`="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Profile</title>
-        <link rel="icon" type="image/png" href="img/logo.png">
-        <link rel="stylesheet" href="css/style.css">
-        <link rel="stylesheet" href="css/profile.css">
-        <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
-    </head>
-    <body>
-            <header>
-                    <br>
-                    <a href="index.html" class="logo"><i class="fa fa-bus fa-1x"></i> SendIT</a>
-                    <a href="#" class="toggle" id="toggle">Menu</a>
-                    <ul id="active">
-                         <li><li><a href="index.html">Home</a></li></li>
-                         <li><a href="parcelorder.html">Create Parcel Order</a></li><!--
-                         --><li><a href="viewparcels.html">View All Parcels</a></li><!--
-                         --><li><a href="userprofile.html">My Profile</a></li><!--
-                         --><li><a href="admin.html">Admin</a></li><!--
-                         --><li><a href="signin.html">SignUp | SignIn</a></li>
-                       </ul>
-         
-                    </ul>
-                </header>
-        <section>
-            <div id="profile">
-                <img src="img/avatar.png" alt="">
-                <p>Username 1</p>
-                <p>Email Address</p>
-            </div>
-            <div id="details">
-                <h2>Details of parcel delivery order</h2>
+        <head>
+                <meta charset="UTF-8">
+                <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta http-equiv="X-UA-Compatible" content="ie=edge">
+                <title>Admin Page</title>
+                <link rel="icon" type="image/png" href="img/logo.png">
+                <link rel="stylesheet" href="css/style.css">
+                <link rel="stylesheet" href="css/profile.css">
+                <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css' integrity='sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU' crossorigin='anonymous'>
+            </head>
+<body>
+    <header>
+        <br>
+        <a href="index.html" class="logo"><i class="fa fa-bus fa-1x"></i> SendIT</a>
+        <a href="#" class="toggle" id="toggle">Menu</a>
+        <ul id="active">
+            <li>
+                <li><a href="index.html">Home</a></li>
+            </li>
+            <li><a href="parcelorder.html">Create Parcel Order</a></li>
+            <!--
+                         -->
+            <li><a href="viewparcels.html">View All Parcels</a></li>
+            <!--
+                         -->
+            <li><a href="userprofile.html">My Profile</a></li>
+            <!--
+                         -->
+            <li><a href="admin.html">Admin</a></li>
+            <!--
+                         -->
+            <li><a href="signin.html">SignUp | SignIn</a></li>
+        </ul>
 
-                <div id="delivery">
-                        <div class="card">
-                            <span id="thumbs">
-                                <i class="fas fa-thumbs-up"></i>
-                            </span>
-                                <div class="house">
-                                  <h2><b>Delivered</b></h2> 
-                                  <p>4</p> 
-                                </div>
-</div>
-                                <div class="card">
-                                        <span id="thumbs">
-                                                <i class="fas fa-thumbs-down"></i>
-                                            </span>
-                                        <div class="house">
-                                          <h2><b>Yet to be Delivered</b></h2> 
-                                          <p>4</p> 
-                                        </div>
-                              </div>
-                              <div id="listing">
-                <h3>List of all parcel delivery orders</h3>
+        </ul>
+    </header>
+    <section class="parc">
+        <div id="profile">
+            <img src="img/avatar.png" alt="">
+            <p>Username 1</p>
+            <p>Email Address</p>
+        </div>
+        <div id="details">
+            <h2>Details of parcel delivery order</h2>
+
+            <div id="delivery">
                 <div class="card">
-                        <span id="gifts">
-                                <i class="fas fa-gift"></i>
-                            </span>
-                <ul>
+                    <span id="thumbs">
+                        <i class="fas fa-thumbs-up"></i>
+                    </span>
                     <div class="house">
-                            <li>Status: Warehouse</li>
-                            <li>Pickup</li>
-                            <li>Weight: 30kg</li>
-                            <li>Price: $345</li>
-                            <li>Destination: Lagos</li>
-                            <li>Picker: James</li>
-                            <li>Phone No: 345678</li>
+                        <h2><b>Delivered</b></h2>
+                        <p>4</p>
+                    </div>
                 </div>
-                </ul>
-            </div>
-            <div class="card">
-                    <span id="gifts">
+                <div class="card">
+                    <span id="thumbs">
+                        <i class="fas fa-thumbs-down"></i>
+                    </span>
+                    <div class="house">
+                        <h2><b>Yet to be Delivered</b></h2>
+                        <p>4</p>
+                    </div>
+                </div>
+                <div id="listing">
+                    <h3>List of all parcel delivery orders</h3>
+                    <div class="card">
+                        <span id="gifts">
                             <i class="fas fa-gift"></i>
                         </span>
-                    <ul>
+                        <ul>
                             <div class="house">
-                            <li>Status: Warehouse</li>
-                            <li>Pickup</li>
-                            <li>Weight: 30kg</li>
-                            <li>Price: $345</li>
-                            <li>Destination: Lagos</li>
-                            <li>Picker: James</li>
-                            <li>Phone No: 345678</li>
+                                <li>Status: Warehouse</li>
+                                <li>Pickup</li>
+                                <li>Weight: 30kg</li>
+                                <li>Price: $345</li>
+                                <li>Destination: Lagos</li>
+                                <li>Picker: James</li>
+                                <li>Phone No: 345678</li>
+                            </div>
+                        </ul>
                     </div>
-                    </ul>
+                    <div class="card">
+                        <span id="gifts">
+                            <i class="fas fa-gift"></i>
+                        </span>
+                        <ul>
+                            <div class="house">
+                                <li>Status: Warehouse</li>
+                                <li>Pickup</li>
+                                <li>Weight: 30kg</li>
+                                <li>Price: $345</li>
+                                <li>Destination: Lagos</li>
+                                <li>Picker: James</li>
+                                <li>Phone No: 345678</li>
+                            </div>
+                        </ul>
+                    </div>
                 </div>
             </div>
-            </div>
-            </div>
-        </section>
+        </div>
+    </section>
 
-        <footer class="center bg-dark">
-                <div class="grid-3 center">
-                  <div>
-                
+    <footer class="center bg-dark">
+        <div class="grid-3 center">
+            <div>
+
                 <li id="copy">Copyright &copy 2018 SendIT</li>
-                    </div>
-                    <div>
-                            <p>Got any questions?    <i class="fas fa-mobile-alt"></i>    +2347032716134</p>
-                                </div><div>
-                <li id="socials">Follow us    <i class="fab fa-google-plus"></i>  <i class="fab fa-facebook"></i>  <i class="fab fa-instagram"></i> <i class="fab fa-twitter"></i></li>
             </div>
+            <div>
+                <p>Got any questions? <i class="fas fa-mobile-alt"></i> +2347032716134</p>
             </div>
-            </footer>
-<script src="./javascript//main.js"></script>            
-    </body>
+            <div>
+                <li id="socials">Follow us <i class="fab fa-google-plus"></i> <i class="fab fa-facebook"></i> <i class="fab fa-instagram"></i>
+                    <i class="fab fa-twitter"></i></li>
+            </div>
+        </div>
+    </footer>
+    <script src="./javascript//main.js"></script>
+</body>
+
 </html>

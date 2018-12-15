@@ -558,15 +558,8 @@ margin-top: 1.5rem;
     }
 }
 
-@media (orientation: landscape){
-    body{
-        width: 100%;
-    }
-    
-   
+
+.parc{
+min-height: 100vh;
 }
-
-
-
-
 
